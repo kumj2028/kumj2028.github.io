@@ -1,37 +1,33 @@
-function substitutionCipher(text, key, encrypt = true) {
-    // Validate key: 26 unique alphabetic characters
-    if (!/^[a-zA-Z]{26}$/.test(key)) {
-        return { error: "Invalid key: Key must be exactly 26 alphabetic characters." };
+/**
+ * Generate a random 26-letter substitution key (A–Z shuffled)
+ */
+function generateRandomKey() {
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const letters = alphabet.split("");
+    // Fisher–Yates shuffle
+    for (let i = letters.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [letters[i], letters[j]] = [letters[j], letters[i]];
     }
-    const keyLower = key.toLowerCase();
-    const uniqueChars = new Set(keyLower);
-    if (uniqueChars.size !== 26) {
-        return { error: "Invalid key: Key must contain 26 unique alphabetic characters." };
-    }
+    return letters.join("");
+}
 
-    const alphabetLower = "abcdefghijklmnopqrstuvwxyz";
-    const alphabetUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-    let sourceAlphabet, targetAlphabet;
-    if (encrypt) {
-        sourceAlphabet = alphabetLower;
-        targetAlphabet = keyLower;
-    } else { // Decrypt
-        sourceAlphabet = keyLower;
-        targetAlphabet = alphabetLower;
-    }
-
-    const map = {};
-    for (let i = 0; i < 26; i++) {
-        map[sourceAlphabet[i]] = targetAlphabet[i];
-        map[sourceAlphabet[i].toUpperCase()] = targetAlphabet[i].toUpperCase();
-    }
-
-    let resultText = text.split("").map(char => {
-        return map[char] || char; // Substitute if in map, otherwise keep original
-    }).join("");
-
-    return { result: resultText };
+/**
+ * Perform a substitution cipher on `text` using `key`.
+ * `key` should be a 26-char string mapping A→key[0], B→key[1], … 
+ */
+function substitutionCipher(text, key, encode = true) {
+    const A = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const mapIn  = encode ? A : key.toUpperCase();
+    const mapOut = encode ? key.toUpperCase() : A;
+    return text
+        .toUpperCase()
+        .split("")
+        .map(ch => {
+          const idx = mapIn.indexOf(ch);
+          return idx >= 0 ? mapOut[idx] : ch;
+        })
+        .join("");
 }
 
 // Standard English letter frequencies (approximate, from Wikipedia/common sources)
@@ -87,36 +83,41 @@ function frequencyAnalysis(text) {
 
 // --- Event Listeners ---
 document.addEventListener("DOMContentLoaded", () => {
+    const keyInput    = document.getElementById("substitution-key");
+    const randKeyBtn  = document.getElementById("substitution-random-key-btn");
+    const encryptBtn  = document.getElementById("substitution-encrypt-btn");
+    const inputArea   = document.getElementById("substitution-input");
+    const outputArea  = document.getElementById("substitution-output");
+    const analyzeBtn = document.getElementById("subst-decrypt-btn");
+    const applyKeyBtn = document.getElementById("subst-apply-key-btn");
+    const ciphertext = document.getElementById("subst-decrypt-text").value;
+    const outputDiv = document.getElementById("subst-decrypt-output");
+    const keyGuessInput = document.getElementById("subst-decrypt-key-guess");
+    const errorArea = document.getElementById("subst-decrypt-error");
+
+    // Random Key Button
+    if (randKeyBtn && keyInput) {
+        randKeyBtn.addEventListener("click", () => {
+            keyInput.value = generateRandomKey();
+        });
+    }
+    
     // Encryption
-    const encryptBtn = document.getElementById("subst-encrypt-btn");
     if (encryptBtn) {
         encryptBtn.addEventListener("click", () => {
-            const text = document.getElementById("subst-encrypt-text").value;
-            const keyInput = document.getElementById("subst-encrypt-key");
-            const outputArea = document.getElementById("subst-encrypt-output");
-            const errorArea = document.getElementById("subst-encrypt-error");
-            errorArea.textContent = "";
-            outputArea.value = "";
-
-            const key = keyInput.value;
-            const result = substitutionCipher(text, key, true);
-
-            if (result.error) {
-                errorArea.textContent = result.error;
-            } else {
-                outputArea.value = result.result;
+            const key  = keyInput.value.trim();
+            const text = inputArea.value;
+            if (key.length !== 26) {
+                alert("Key must be exactly 26 letters A-Z.");
+                return;
             }
+            outputArea.value = substitutionCipher(text, key, true);
         });
     }
 
     // Decryption - Step 1: Frequency Analysis
-    const analyzeBtn = document.getElementById("subst-decrypt-btn");
     if (analyzeBtn) {
         analyzeBtn.addEventListener("click", () => {
-            const ciphertext = document.getElementById("subst-decrypt-text").value;
-            const outputDiv = document.getElementById("subst-decrypt-output");
-            const keyGuessInput = document.getElementById("subst-decrypt-key-guess");
-            const errorArea = document.getElementById("subst-decrypt-error");
             outputDiv.innerHTML = "";
             keyGuessInput.value = "";
             errorArea.textContent = "";
@@ -158,13 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Decryption - Step 2: Apply Key
-    const applyKeyBtn = document.getElementById("subst-apply-key-btn");
     if (applyKeyBtn) {
         applyKeyBtn.addEventListener("click", () => {
-            const ciphertext = document.getElementById("subst-decrypt-text").value;
-            const keyInput = document.getElementById("subst-decrypt-key-guess");
-            const outputArea = document.getElementById("subst-decrypt-final-output");
-            const errorArea = document.getElementById("subst-decrypt-error"); // Use the same error area
             errorArea.textContent = "";
             outputArea.value = "";
 
