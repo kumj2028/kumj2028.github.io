@@ -54,6 +54,13 @@ document.addEventListener("DOMContentLoaded", () => {
         encryptBtn.addEventListener("click", () => {
             const text = document.getElementById("caesar-encrypt-text").value;
             const shiftInput = document.getElementById("caesar-encrypt-shift");
+            const randomShiftBtn = document.getElementById('caesar-random-shift-btn');
+            randomShiftBtn.addEventListener('click', () => {
+                // pick an integer from 1 to 25
+                const rand = Math.floor(Math.random() * 25) + 1;
+                shiftInput.value = rand;
+              });
+
             const outputArea = document.getElementById("caesar-encrypt-output");
             const errorArea = document.getElementById("caesar-encrypt-error");
             errorArea.textContent = ""; // Clear previous errors
