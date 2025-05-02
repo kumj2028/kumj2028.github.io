@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigenere Cipher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Vigenere Cipher</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="caesar.html">Caesar</a>
+            <a href="substitution.html">Substitution</a>
+            <a href="vigenere.html">Vigenere</a>
+            <a href="hill.html">Hill</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cipher-container">
+            <h2>Encrypt</h2>
+            <label for="vig-encrypt-text">Plaintext:</label>
+            <textarea id="vig-encrypt-text" rows="3"></textarea>
+            <label for="vig-encrypt-key">Key (letters only):</label>
+            <input type="text" id="vig-encrypt-key" placeholder="e.g., LEMON">
+            <button id="vig-encrypt-btn">Encrypt</button>
+            <label for="vig-encrypt-output">Ciphertext:</label>
+            <textarea id="vig-encrypt-output" rows="3" readonly></textarea>
+            <p class="error-message" id="vig-encrypt-error"></p>
+        </section>
+
+        <section class="cipher-container">
+            <h2>Decrypt (Kasiski Examination & Frequency Analysis)</h2>
+            <label for="vig-decrypt-text">Ciphertext:</label>
+            <textarea id="vig-decrypt-text" rows="4"></textarea>
+            <button id="vig-decrypt-btn">Analyze Ciphertext</button>
+            <label>Analysis Results:</label>
+            <div id="vig-decrypt-output" class="analysis-output"></div>
+            <p class="error-message" id="vig-decrypt-error"></p>
+            <label for="vig-decrypt-key-guess">Guessed Key:</label>
+            <input type="text" id="vig-decrypt-key-guess" readonly>
+            <button id="vig-apply-key-btn">Decrypt with Guessed Key</button>
+            <label for="vig-decrypt-final-output">Decrypted Text:</label>
+            <textarea id="vig-decrypt-final-output" rows="4" readonly></textarea>
+        </section>
+    </main>
+
+    <footer>
+        <p>Cryptographic Cipher Showcase</p>
+    </footer>
+
+    <script src="js/vigenere.js"></script>
+    <!-- We will add Kasiski examination and decryption logic later -->
+</body>
+</html>

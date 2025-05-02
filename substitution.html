@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Substitution Cipher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Substitution Cipher</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="caesar.html">Caesar</a>
+            <a href="substitution.html">Substitution</a>
+            <a href="vigenere.html">Vigenere</a>
+            <a href="hill.html">Hill</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cipher-container">
+            <h2>Encrypt</h2>
+            <label for="subst-encrypt-text">Plaintext:</label>
+            <textarea id="subst-encrypt-text" rows="3"></textarea>
+            <label for="subst-encrypt-key">Key (26 unique letters):</label>
+            <input type="text" id="subst-encrypt-key" maxlength="26" placeholder="e.g., QWERTYUIOPASDFGHJKLZXCVBNM">
+            <button id="subst-encrypt-btn">Encrypt</button>
+            <label for="subst-encrypt-output">Ciphertext:</label>
+            <textarea id="subst-encrypt-output" rows="3" readonly></textarea>
+            <p class="error-message" id="subst-encrypt-error"></p>
+        </section>
+
+        <section class="cipher-container">
+            <h2>Decrypt (Frequency Analysis)</h2>
+            <label for="subst-decrypt-text">Ciphertext:</label>
+            <textarea id="subst-decrypt-text" rows="4"></textarea>
+            <button id="subst-decrypt-btn">Analyze Frequency</button>
+            <label>Frequency Analysis:</label>
+            <div id="subst-decrypt-output" class="analysis-output"></div>
+            <p class="error-message" id="subst-decrypt-error"></p>
+            <label for="subst-decrypt-key-guess">Suggested Key (Editable):</label>
+            <input type="text" id="subst-decrypt-key-guess" maxlength="26">
+            <button id="subst-apply-key-btn">Decrypt with Key</button>
+            <label for="subst-decrypt-final-output">Decrypted Text:</label>
+            <textarea id="subst-decrypt-final-output" rows="4" readonly></textarea>
+        </section>
+    </main>
+
+    <footer>
+        <p>Cryptographic Cipher Showcase</p>
+    </footer>
+
+    <script src="js/substitution.js"></script>
+    <!-- We will add frequency analysis and decryption logic later -->
+</body>
+</html>
