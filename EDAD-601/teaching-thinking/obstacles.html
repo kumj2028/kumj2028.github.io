@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Teaching Thinking — Obstacles</title>
+<link href="../../style.css" rel="stylesheet"/>
+<style>
+/* Minimal defaults if style.css is absent */
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; }
+header, nav, main, footer { max-width: 1000px; margin: 0 auto; padding: 16px; }
+.topbar a { margin-right: 12px; text-decoration: none; color: #007bff; }
+.topbar a:hover { text-decoration: underline; }
+.card { background: #f9fafb; border: 1px solid #e5e7eb; border-radius: 10px; padding: 16px; margin: 16px 0; }
+h1 { margin-top: 8px; }
+.toc a { display: block; margin: 6px 0; }
+.badge { display:inline-block; padding:2px 8px; border-radius:999px; background:#eef2ff; border:1px solid #c7d2fe; font-size:12px; }
+code, kbd { background:#f3f4f6; padding:2px 4px; border-radius:6px; }
+hr { border:0; border-top:1px solid #e5e7eb; }
+
+.course-badge { float:right; padding:2px 8px; border-radius:999px; background:#ecfeff; border:1px solid #a5f3fc; font-size:12px; }</style>
+</head>
+<body>
+<body><main><div class="edad-selector-widget"></div>
+<header class="topbar">
+<a href="../index.html">← Back to Home</a>
+<a href="index.html">Overview</a>
+<a href="obstacles.html">Obstacles</a>
+<a href="frameworks.html">Frameworks</a>
+<a href="strategies.html">Strategies</a>
+<a href="sources.html">Sources</a>
+<a href="conclusion.html">Conclusion</a>
+<span class="course-badge">EDAD-601</span></header>
+<main>
+<h1>What Are We Up Against?</h1><div class="card" id="study-summary"><h2>Study Spotlight: "They Don't Read Very Well" (Carlson et al., 2024)</h2>
+  <p>Abstract: This paper analyzes the results from a think-aloud reading
+study designed to test the reading comprehension skills of 85 English
+majors from two regional Kansas universities. From January to April of
+2015, subjects participated in a recorded, twenty-minute reading session
+in which they were asked to read the first seven paragraphs of Charles
+Dickens' Bleak House out loud to a facilitator and then translate each
+sentence into plain English. Before subjects started the reading tests, they
+were given access to online resources and dictionaries and advised that
+they could also use their own cell phones as a resource. The facilitators
+also assured the subjects that were free to go at their own pace and did
+not have to finish reading all seven paragraphs by the end of the exam. As
+part of the study, each subject filled out a survey collecting personal data
+(class rank, G.P.A., etc.) and took a national literacy exam (the Degrees of
+Reading Power Test 10A). After the 85 taped reading tests were completed,
+the results were transcribed and coded.</p>
+  <p>
+<h2>Results:</h2> <p>58% (49/85) were classified as problematic: they grasped too little of the passage to read the novel unaided (though most believed they could); 38% (32/85) were competent: they caught more vocabulary and some figures of speech but only about half the literal prose; and 5% (4/85) were proficient: they tracked clauses closely and built accurate literal interpretations.</p>
+ <h3> Example think-aloud from a competent reader:</h3>
+<p> <b>Original Text</b> LONDON. Michaelmas Term lately over, and
+the Lord Chancellor sitting in Lincoln’s Inn Hall. Implacable
+November weather. As much mud in the streets, as if the waters
+had but newly retired from the face of the earth, and it would
+not be wonderful to meet a Megalosaurus, forty feet long or so,
+waddling like an elephantine lizard up Holborn Hill. Smoke
+lowering down . . . <br>
+<b>Facilitator</b>: Before you go on, I’m going to ask you to kind of
+explain.<br>
+<b>Subject</b>: Oh, O.K. <br>
+<b>Facilitator</b>: what you read so far, so. <br>
+<b>Subject</b>: O.K. Two characters it’s pointed out this Michaelmas
+and Lord Chancellor described as sitting in Lincoln’s Inn Hall. <br>
+<b>Facilitator</b>: O.K. <br>
+<b>Subject</b>: Um, talk about the November weather. Uh, mud in the
+streets. And, uh, I do probably need to look up “Megalosaurus”—
+“meet a Megalosaurus, forty feet long or so,” so it’s probably
+some kind of an animal or something or another that it is talk-
+ing about encountering in the streets. And “wandering like
+an elephantine lizard up Holborn Hill.” So, yup, I think we’ve
+encountered some kind of an animal these, these characters have,
+have met in the street. yup, I think we’ve encountered some kind
+of an animal these, these characters have, have met in the street</p>
+<h3> Reading Proficiency vs. DRP Scores:</h3>
+<p>
+Linking the DRP to performance, everyone scoring under 79% on the DRP ended up problematic on Dickens; yet a majority (59%) of the problematic group had DRP scores above 90%, indicating that strong general reading scores didn't guarantee success with complex literary prose.
+</p></div><div class="card" id="obstacle-input"><h2>Your turn: What could be obstacles blocking the students' thinking?</h2><label for="user-obstacles">Enter one obstacle per line:</label><textarea id="user-obstacles" rows="6" style="width:100%;"></textarea><button id="save-obstacles">Save my list</button></div><div class="card" id="reveal-card"><h2>Suggested obstacles (from the chapter)</h2><p>Click to compare your list with a suggested set.</p><button id="reveal-obstacles">Reveal list</button></div><div class="card" id="auto-obstacles" style="display:none">
+<ul>
+<li><strong>Limited practice:</strong> Prior schooling often rewards memorization rather than reasoning.</li>
+<li><strong>Limited time:</strong> Students optimize for efficiency unless thinking is explicitly valued.</li>
+<li><strong>Limited patience:</strong> Open-ended tasks feel ambiguous and frustrating at first.</li>
+<li><strong>Limited direction:</strong> Novices rarely see expert thinking modeled explicitly.</li>
+<li><strong>Limited expectations:</strong> Many underestimate the relevance of deep thinking to careers.</li>
+</ul>
+<p><em>Implication:</em> Build time, credit, and clarity for thinking itself—not just for coverage.</p>
+</div>
+
+</main><script src="roster.js"></script></main></body><script>
+(function(){
+  const STORAGE_KEY = "edad601_user_obstacles";
+  const $ = (s)=>document.querySelector(s);
+  const ta = $("#user-obstacles");
+  const saveBtn = $("#save-obstacles");
+  const revealBtn = $("#reveal-obstacles");
+  const autoBlock = $("#auto-obstacles");
+
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved && ta) ta.value = saved;
+  } catch(e){}
+
+  if (saveBtn && ta){
+    saveBtn.addEventListener("click", function(){
+      try { localStorage.setItem(STORAGE_KEY, ta.value || ""); } catch(e){}
+      saveBtn.textContent = "Saved!";
+      setTimeout(()=> saveBtn.textContent = "Save my list", 1500);
+    });
+  }
+  if (revealBtn && autoBlock){
+    revealBtn.addEventListener("click", function(){
+      autoBlock.style.display = "block";
+      revealBtn.disabled = true;
+      revealBtn.textContent = "Shown";
+    });
+  }
+})();</script></body></html>

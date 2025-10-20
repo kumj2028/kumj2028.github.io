@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Simple Crypto Ciphers</title>
+<link href="../style.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Simple Cryptographic Ciphers</h1>
+<div class="cipher-container">
+<h2>Caesar Cipher</h2>
+<label for="caesar-text">Plaintext:</label>
+<textarea id="caesar-text" rows="3"></textarea>
+<label for="caesar-shift">Shift (1-25):</label>
+<input id="caesar-shift" max="25" min="1" type="number" value="3"/>
+<button id="caesar-encrypt">Encrypt</button>
+<label for="caesar-output">Ciphertext:</label>
+<textarea id="caesar-output" readonly="" rows="3"></textarea>
+</div>
+<div class="cipher-container">
+<h2>Substitution Cipher</h2>
+<label for="subst-text">Plaintext:</label>
+<textarea id="subst-text" rows="3"></textarea>
+<label for="subst-key">Key (26 unique letters):</label>
+<input id="subst-key" maxlength="26" placeholder="e.g., QWERTYUIOPASDFGHJKLZXCVBNM" type="text"/>
+<button id="subst-encrypt">Encrypt</button>
+<label for="subst-output">Ciphertext:</label>
+<textarea id="subst-output" readonly="" rows="3"></textarea>
+<p class="error-message" id="subst-error"></p>
+</div>
+<div class="cipher-container">
+<h2>Vigenère Cipher</h2>
+<label for="vig-text">Plaintext:</label>
+<textarea id="vig-text" rows="3"></textarea>
+<label for="vig-key">Key (letters only):</label>
+<input id="vig-key" placeholder="e.g., KEY" type="text"/>
+<button id="vig-encrypt">Encrypt</button>
+<label for="vig-output">Ciphertext:</label>
+<textarea id="vig-output" readonly="" rows="3"></textarea>
+<p class="error-message" id="vig-error"></p>
+</div>
+<div class="cipher-container">
+<h2>Hill Cipher (2x2)</h2>
+<label for="hill-text">Plaintext:</label>
+<textarea id="hill-text" rows="3"></textarea>
+<label for="hill-key">Key (4 letters for 2x2 matrix):</label>
+<input id="hill-key" maxlength="4" placeholder="e.g., GYBN" type="text"/>
+<button id="hill-encrypt">Encrypt</button>
+<label for="hill-output">Ciphertext:</label>
+<textarea id="hill-output" readonly="" rows="3"></textarea>
+<p class="error-message" id="hill-error"></p>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

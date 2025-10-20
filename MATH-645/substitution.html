@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Substitution Cipher</title>
+<link href="../style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<h1>Substitution Cipher</h1>
+<nav>
+<a href="index.html">Home</a>
+<a href="caesar.html">Caesar</a>
+<a href="substitution.html">Substitution</a>
+<a href="vigenere.html">Vigenere</a>
+<a href="hill.html">Hill</a>
+</nav>
+</header>
+<main>
+<section class="cipher-container">
+<h2>Encrypt</h2>
+<label for="subst-encrypt-text">Plaintext:</label>
+<textarea id="subst-encrypt-text" rows="3"></textarea>
+<label for="subst-encrypt-key">Key (26 unique letters):</label>
+<input id="subst-encrypt-key" maxlength="26" placeholder="e.g., QWERTYUIOPASDFGHJKLZXCVBNM" type="text"/>
+<button class="random-btn" id="subst-random-key-btn">Random</button>
+<button id="subst-encrypt-btn">Encrypt</button>
+<label for="subst-encrypt-output">Ciphertext:</label>
+<textarea id="subst-encrypt-output" readonly="" rows="3"></textarea>
+<p class="error-message" id="subst-encrypt-error"></p>
+</section>
+<section class="cipher-container">
+<h2>Decrypt (Frequency Analysis)</h2>
+<label for="subst-decrypt-text">Ciphertext:</label>
+<textarea id="subst-decrypt-text" rows="4"></textarea>
+<button id="subst-decrypt-btn">Analyze Frequency</button>
+<label>Frequency Analysis:</label>
+<div class="analysis-output" id="subst-decrypt-output"></div>
+<p class="error-message" id="subst-decrypt-error"></p>
+<label for="subst-decrypt-key-guess">Suggested Key (Editable):</label>
+<input id="subst-decrypt-key-guess" maxlength="26" type="text"/>
+<button id="subst-apply-key-btn">Decrypt with Key</button>
+<label for="subst-decrypt-final-output">Decrypted Text:</label>
+<textarea id="subst-decrypt-final-output" readonly="" rows="4"></textarea>
+</section>
+</main>
+<footer>
+<p>Cryptographic Cipher Showcase</p>
+</footer>
+<script src="js/substitution.js"></script>
+</body>
+</html>

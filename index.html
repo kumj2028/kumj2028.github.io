@@ -1,84 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptographic Cipher Showcase</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Add some specific styles for the index page */
-        main {
-            text-align: center;
-        }
-        .intro {
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .cipher-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-        .cipher-links a {
-            display: block;
-            background-color: #007bff;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
-        }
-        .cipher-links a:hover {
-            background-color: #0056b3;
-        }
-        nav {
-            text-align: center; /* Center nav links on index */
-            margin-bottom: 20px;
-        }
-        nav a {
-            margin: 0 10px;
-            color: #007bff;
-            text-decoration: none;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-    </style>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mengxiang's Experimental Website</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0}
+header,nav,main{max-width:1000px;margin:0 auto;padding:16px}
+nav a{margin-right:12px;text-decoration:none}
+.course-block{padding:12px 0;border-top:1px solid #e5e7eb}
+.course-block h2{margin:8px 0 12px}
+.card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:16px}
+</style>
 </head>
 <body>
-    <header>
-        <h1>Cryptographic Cipher Showcase</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="caesar.html">Caesar</a>
-            <a href="substitution.html">Substitution</a>
-            <a href="vigenere.html">Vigenere</a>
-            <a href="hill.html">Hill</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="intro">
-            <h2>Welcome!</h2>
-            <p>This website demonstrates several classic cryptographic ciphers. Each page allows you to encrypt messages using a specific cipher and also provides tools to analyze and attempt decryption of ciphertext.</p>
-            <p>Select a cipher below to begin:</p>
-        </section>
-
-        <section class="cipher-links">
-            <a href="caesar.html">Caesar Cipher</a>
-            <a href="substitution.html">Substitution Cipher</a>
-            <a href="vigenere.html">Vigenere Cipher</a>
-            <a href="hill.html">Hill Cipher (2x2)</a>
-        </section>
-    </main>
-
-    <footer>
-        <p></p>
-    </footer>
-
+<header>
+  <h1>Mengxiang's Experimental Website</h1>
+  <nav>
+    <a href="MATH-645/index.html">MATH-645</a>
+    <a href="EDAD-601/index.html">EDAD-601</a>
+  </nav>
+</header>
+<main>
+  <section class="course-block" id="MATH-645">
+    <h2>MATH-645: A Survey of Mathematical Problems</h2>
+    <a href="MATH-645/index.html">Open MATH-645 »</a>
+  </section>
+  <section class="course-block" id="EDAD-601">
+    <h2>EDAD-601: College Teaching</h2>
+    <a href="EDAD-601/index.html">Open EDAD-601 »</a>
+  </section>
+</main>
 </body>
 </html>
