@@ -20,8 +20,24 @@ code, kbd { background:#f3f4f6; padding:2px 4px; border-radius:6px; }
 hr { border:0; border-top:1px solid #e5e7eb; }
 
 .course-badge { float:right; padding:2px 8px; border-radius:999px; background:#ecfeff; border:1px solid #a5f3fc; font-size:12px; }</style>
-</head>
+<style>
+#user-guidelines-card button{
+  cursor:pointer;
+  border:1px solid #1f2937;
+  border-radius:8px;
+  padding:8px 12px;
+  background:#2563eb;
+  color:#fff;
+  font-weight:700;
+}
+#user-guidelines-card button:hover{ background:#1d4ed8; border-color:#1d4ed8; }
+#user-guidelines-card #save-guidelines{ background:#6b7280; border-color:#4b5563; }
+#user-guidelines-card #save-guidelines:hover{ background:#4b5563; border-color:#4b5563; }
+#book-guidelines{ display:none; }
+</style></head>
 <body>
+<body><main><div class="edad-selector-widget"></div>
+</main><script src="roster.js"></script></main></body><script></script>
 <header class="topbar">
 <a href="../index.html">← Back to Home</a>
 <a href="index.html">Overview</a>
@@ -33,7 +49,7 @@ hr { border:0; border-top:1px solid #e5e7eb; }
 <span class="course-badge">EDAD-601</span></header>
 <main>
 <h1>Improving Thinking Quality: 15 Guidelines</h1>
-<div class="card">
+<div class="card" id="user-guidelines-card"><h2>Your guidelines first</h2><p>Write your own guidelines (one per line), then reveal the chapter’s list to compare.</p><label for="user-guidelines">Enter guidelines:</label><textarea id="user-guidelines" rows="6" style="width:100%;"></textarea><div style="display:flex; gap:8px; margin-top:8px; flex-wrap:wrap;"><button id="save-guidelines">Save my list</button><button id="reveal-guidelines">Reveal list</button></div></div><div class="card" id="book-guidelines">
 <ol>
 <li>State thinking expectations explicitly and often.</li>
 <li>Provide structured, repeated practice with feedback.</li>
@@ -53,8 +69,33 @@ hr { border:0; border-top:1px solid #e5e7eb; }
 </ol>
 </div>
 </main>
-<footer>
-<p class="badge">Teaching Thinking summary pages (for class use)</p>
-</footer>
-</body>
+<script>
+(function(){
+  const KEY = "edad601_user_guidelines";
+  const $ = (s)=>document.querySelector(s);
+  const ta = $("#user-guidelines");
+  const saveBtn = $("#save-guidelines");
+  const revealBtn = $("#reveal-guidelines");
+  const book = $("#book-guidelines");
+
+  try {
+    const saved = localStorage.getItem(KEY);
+    if (saved && ta) ta.value = saved;
+  } catch(e){}
+
+  if (saveBtn && ta){
+    saveBtn.addEventListener("click", function(){
+      try { localStorage.setItem(KEY, ta.value || ""); } catch(e){}
+      saveBtn.textContent = "Saved!";
+      setTimeout(()=> saveBtn.textContent = "Save my list", 1500);
+    });
+  }
+  if (revealBtn && book){
+    revealBtn.addEventListener("click", function(){
+      book.style.display = "block";
+      revealBtn.disabled = true;
+      revealBtn.textContent = "Shown";
+    });
+  }
+})();</script></body>
 </html>

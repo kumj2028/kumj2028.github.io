@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R. L. Moore Method — Notes</title>
+<style>
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;line-height:1.6}
+  header, main{max-width:1000px;margin:0 auto;padding:16px}
+  .card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:16px;margin:12px 0}
+  h1{margin-top:4px}
+  blockquote{margin:8px 0;padding:8px 12px;border-left:4px solid #9ca3af;background:#fff;white-space:pre-wrap}
+  textarea{width:100%;min-height:120px;padding:10px;border:1px solid #e5e7eb;border-radius:8px}
+  .row{display:flex;flex-direction:column;gap:16px}
+  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .btn{cursor:pointer;border:1px solid #1f2937;border-radius:8px;padding:8px 12px;background:#2563eb;color:#fff;font-weight:700}
+  .btn.secondary{background:#6b7280;border-color:#4b5563}
+  .btn:hover{background:#1d4ed8;border-color:#1d4ed8}
+  .btn.secondary:hover{background:#4b5563;border-color:#4b5563}
+  label{font-weight:600}
+</style>
+</head>
+<body>
+<header>
+  <h1>R. L. Moore’s Teaching Method</h1>
+  <p class="card">Excerpt from Steven Krantz, <em>How to Teach Mathematics</em>.</p>
+</header>
+<main>
+  <div class="card">
+    <h2>The Passage</h2>
+    <blockquote>
+R. L. Moore was an important and influential faculty member at the University
+of Texas from the 1920s to the 1970s. Possessed of a strong and single-minded
+personality, he developed a special method of teaching that has been successfully
+practiced and disseminated by his students and followers even to the present day.
+The Moore method worked like this—and it was practiced in all his classes,
+from the most elementary undergraduate to the most advanced graduate. Students
+would show up on the first day, usually with no notion of what Moore was like
+or what he expected. He would hand out a single mimeographed sheet with some
+definitions and some axioms and some theorems stated on it. And he would say,
+“Who would like to go to the board and prove the first theorem?” Of course Moore
+was usually greeted by bewildered silence. Many of his students did not know the
+meaning of the words “definition” and “axiom” and “theorem” and “proof,” nor
+did they know the basic rules of logic. But Moore could take it. He sat and he
+waited. Often the first hour would go by without a word spoken. And so would
+the second. And many times the third as well. Eventually, some brave soul would
+go to the blackboard and attempt a “proof” of Theorem 1. Moore would rip that
+person apart. And that set the tone for the class.
+    </blockquote>
+    <blockquote>
+In each session of R. L. Moore’s class, some student would go to the board with
+a proof he/she had concocted, and everyone else in the class—student and professor
+alike—would examine it critically. There were no holds barred. Moore would not
+assist the students in creating a proof, but he would respond to whatever they said.
+The good thing about Moore’s classes is that his students came to possess the
+mathematics. If you put it incorrectly on the blackboard, then you were subjected
+to merciless criticism. If you got it right, then you received quiet but sincere
+approbation.
+    </blockquote>
+    <blockquote>
+Moore did not allow his students to read books or papers (this included even
+his graduate students!). Indeed Moore saw to it that the mathematics library got
+no funds for new books! As legend had it, if he found a student of his in the library
+he would throw that person (bodily) out the door. Students were to create the
+mathematics themselves—from whole cloth. The class worked best if the students
+began with approximately equal abilities. They were not allowed to read, and they
+were not allowed to collaborate outside of class. Moore was merciless in weeding
+out those students who did not cooperate or who did not fit in.
+    </blockquote>
+  </div>
+
+  <div class="card">
+    <h2>Your Analysis</h2>
+    <div class="row">
+      <div>
+        <label for="adv">Advantages of the Moore Method</label>
+        <textarea id="adv" placeholder="List advantages here… (one per line)"></textarea>
+      </div>
+      <div>
+        <label for="disadv">Disadvantages / Concerns</label>
+        <textarea id="disadv" placeholder="List disadvantages here… (one per line)"></textarea>
+      </div>
+      <div class="btns">
+        <button class="btn secondary" id="save">Save notes</button>
+        <button class="btn" id="clear">Clear notes</button>
+      </div>
+      <p id="status" aria-live="polite"></p>
+    </div>
+  </div>
+</main>
+
+<script>
+(function(){
+  const KEY_ADV = "moore_advantages";
+  const KEY_DIS = "moore_disadvantages";
+  const adv = document.getElementById("adv");
+  const dis = document.getElementById("disadv");
+  const saveBtn = document.getElementById("save");
+  const clearBtn = document.getElementById("clear");
+  const status = document.getElementById("status");
+
+  // Restore
+  try {
+    const a = localStorage.getItem(KEY_ADV);
+    const d = localStorage.getItem(KEY_DIS);
+    if(a) adv.value = a;
+    if(d) dis.value = d;
+  } catch(e){}
+
+  function say(msg){
+    status.textContent = msg;
+    setTimeout(()=> status.textContent = "", 2000);
+  }
+
+  saveBtn.addEventListener("click", () => {
+    try {
+      localStorage.setItem(KEY_ADV, adv.value || "");
+      localStorage.setItem(KEY_DIS, dis.value || "");
+      say("Saved!");
+    } catch(e){
+      say("Could not save (localStorage blocked).");
+    }
+  });
+
+  clearBtn.addEventListener("click", () => {
+    adv.value = "";
+    dis.value = "";
+    try {
+      localStorage.removeItem(KEY_ADV);
+      localStorage.removeItem(KEY_DIS);
+    } catch(e){}
+    say("Cleared.");
+  });
+})();
+</script>
+</body>
+</html>

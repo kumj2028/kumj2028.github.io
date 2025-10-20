@@ -20,8 +20,73 @@ code, kbd { background:#f3f4f6; padding:2px 4px; border-radius:6px; }
 hr { border:0; border-top:1px solid #e5e7eb; }
 
 .course-badge { float:right; padding:2px 8px; border-radius:999px; background:#ecfeff; border:1px solid #a5f3fc; font-size:12px; }</style>
-</head>
+<style>/* Interactive frameworks UI */\n
+.tt-grid { display: grid; gap: 10px; }
+.tt-row { display:flex; align-items:flex-start; gap: 12px; }
+.tt-left { flex: 0 0 220px; font-weight: 600; }
+.tt-right { flex: 1 1 auto; display:flex; align-items:center; gap:8px; flex-wrap: wrap; }
+.tt-input { flex: 1 1 260px; padding:6px 8px; border:1px solid #e5e7eb; border-radius:8px; }
+.tt-show { padding:6px 10px; border:1px solid #062b75; border-radius:8px; background:#2a068d; cursor:pointer; }
+.tt-show:hover { background:#f3f4f6; }
+.tt-answer { display:none; font-style: italic; color:#374151; }
+.tt-answer.revealed { display:inline; }
+.tt-note { font-size: 0.93rem; color:#374151; margin: 6px 0 4px; }
+</style><style>
+/* EDAD-601 multi-instance selector widget */
+.edad-selector-widget.mini { display:flex; align-items:center; gap:8px; justify-content:flex-end; margin-bottom:8px; }
+.edad-card-mini { display:flex; align-items:center; gap:8px; padding:6px 8px; border:1px solid #e5e7eb; border-radius:8px; background:#fff; }
+.edad-card-mini .pill { font-size:12px; padding:2px 8px; border-radius:999px; background:#eef2ff; border:1px solid #c7d2fe; }
+.edad-card-mini .btn { cursor:pointer; border:1px solid #e5e7eb; border-radius:8px; padding:4px 8px; background:#fff; }
+.edad-card-mini .btn:hover { background:#f3f4f6; }
+.edad-card-mini .meta { font-size:12px; color:#374151; }
+.edad-card-mini .out { font-size:0.95rem; }
+
+
+/* High-contrast buttons for EDAD-601 selector (mini) */
+.edad-card-mini .btn {
+  cursor: pointer;
+  border: 1px solid #1f2937;  /* gray-800 */
+  border-radius: 8px;
+  padding: 6px 10px;
+  background: #1f2937;        /* gray-800 */
+  color: #ffffff;
+  font-weight: 600;
+}
+.edad-card-mini .btn:hover { background: #111827; border-color: #111827; }
+.edad-card-mini .btn:focus { outline: 2px solid #93c5fd; outline-offset: 2px; } /* light blue focus ring */
+
+/* Distinguish actions */
+.edad-card-mini .btn.pick  { background: #2563eb; border-color: #1d4ed8; } /* blue-600 */
+.edad-card-mini .btn.pick:hover  { background: #1d4ed8; border-color: #1d4ed8; }
+.edad-card-mini .btn.reset { background: #6b7280; border-color: #4b5563; } /* gray-500 */
+.edad-card-mini .btn.reset:hover { background: #4b5563; border-color: #4b5563; }
+
+/* Improve text legibility */
+.edad-card-mini .out { color: #111827; font-weight: 600; }
+.edad-card-mini .meta { color: #111827; font-weight: 500; }
+</style><style>
+/* Plain definition display */
+.tt-def-shown { 
+  background: #f3f4f6; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 8px; 
+  padding: 8px 10px; 
+  font-style: italic; 
+  color: #111827; 
+}
+
+/* Orwell quote block */
+.orwell-quote blockquote {
+  margin: 8px 0; 
+  padding: 8px 12px; 
+  border-left: 4px solid #9ca3af; 
+  background: #f9fafb;
+  white-space: pre-wrap;
+}
+.orwell-quote h3 { margin-top: 6px; }
+</style></head>
 <body>
+<body><main><div class="edad-selector-widget"></div>
 <header class="topbar">
 <a href="../index.html">← Back to Home</a>
 <a href="index.html">Overview</a>
@@ -29,85 +94,143 @@ hr { border:0; border-top:1px solid #e5e7eb; }
 <a href="frameworks.html">Frameworks</a>
 <a href="strategies.html">Strategies</a>
 <a href="sources.html">Sources</a>
-<a href="conclusion.html">Conclusion</a>
 <span class="course-badge">EDAD-601</span></header>
 <main>
 <h1>Frameworks that Support Teaching Thinking</h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MsskCxQ4sks?si=rHADBlWe8HeFT2Xt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<div class="card">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/MsskCxQ4sks?si=rHADBlWe8HeFT2Xt" title="YouTube video player" width="560"></iframe>
+<div class="card"><div class="edad-selector-widget mini"></div>
 <h2>Bloom → Anderson &amp; Krathwohl (Revised)</h2>
-<p>Bloom’s Taxonomy and the Revision
-
-Original (Bloom et al., 1956): knowledge → comprehension → application → analysis → synthesis → evaluation.
-
-Revised (Anderson & Krathwohl, 2001): remember → understand → apply → analyze → evaluate → create.
-
-Shifts nouns → verbs; places “create” above “evaluate.”
-
-Encourages measurable learning objectives and higher-order test design.</p>
-</div>
-<div class="card">
+<p class="tt-note">Fill the revised term for each original Bloom level, then click Show.</p><div class="tt-grid" id="bloom-grid"><div class="tt-row"><div class="tt-left">Knowledge</div><div class="tt-right"><input class="tt-input" placeholder="Revised term…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Remember"></span></div></div><div class="tt-row"><div class="tt-left">Comprehension</div><div class="tt-right"><input class="tt-input" placeholder="Revised term…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Understand"></span></div></div><div class="tt-row"><div class="tt-left">Application</div><div class="tt-right"><input class="tt-input" placeholder="Revised term…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Apply"></span></div></div><div class="tt-row"><div class="tt-left">Analysis</div><div class="tt-right"><input class="tt-input" placeholder="Revised term…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Analyze"></span></div></div><div class="tt-row"><div class="tt-left">Synthesis</div><div class="tt-right"><input class="tt-input" placeholder="Revised term…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Create"></span></div></div><div class="tt-row"><div class="tt-left">Evaluation</div><div class="tt-right"><input class="tt-input" placeholder="Revised term…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Evaluate"></span></div></div></div></div>
+<div class="card"><div class="edad-selector-widget mini"></div>
 <h2>Perry’s Scheme</h2>
-<p>Dualism: knowledge as right/wrong.
-
-Multiplism: acceptance of multiple opinions all equal.
-
-Relativism: awareness that context matters and certain knowledge claims are better for different purposes.
-
-Commitment: forming and sticking to one's beliefs while remaining open to new evidence.</p>
-</div>
-<div class="card">
+<p class="tt-note">Enter your definition, then click Show to reveal the book’s definition.</p><div class="tt-grid"><div class="tt-row"><div class="tt-left">Dualism</div><div class="tt-right"><input class="tt-input" placeholder="Your definition…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Knowledge seen as right/wrong; authorities have the answers."></span></div></div><div class="tt-row"><div class="tt-left">Multiplism</div><div class="tt-right"><input class="tt-input" placeholder="Your definition…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Many opinions; often treated as equally valid without evaluation."></span></div></div><div class="tt-row"><div class="tt-left">Relativism</div><div class="tt-right"><input class="tt-input" placeholder="Your definition…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Context matters; evaluate claims with evidence and methods."></span></div></div><div class="tt-row"><div class="tt-left">Commitment</div><div class="tt-right"><input class="tt-input" placeholder="Your definition…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Choose/justify positions while remaining open to new evidence."></span></div></div></div></div>
+<div class="card"><div class="edad-selector-widget mini"></div>
 <h2>SOLO Taxonomy</h2>
-<p>Prestructural – isolated facts.
-
-Unistructural – grasp of one idea.
-
-Multistructural – many ideas, little integration.
-
-Relational – connections form coherent whole.
-
-Extended abstract – transfer and generalization.
-Encourages deep learning assessment over rote memorization.</p>
-</div>
-<div class="card">
+<p class="tt-note">Enter your definition, then click Show to reveal the book’s definition.</p><div class="tt-grid"><div class="tt-row"><div class="tt-left">Prestructural</div><div class="tt-right"><input class="tt-input" placeholder="Your definition…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Missing the point; isolated or irrelevant bits."></span></div></div><div class="tt-row"><div class="tt-left">Unistructural</div><div class="tt-right"><input class="tt-input" placeholder="Your definition…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Understands one relevant aspect."></span></div></div><div class="tt-row"><div class="tt-left">Multistructural</div><div class="tt-right"><input class="tt-input" placeholder="Your definition…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Several aspects known but unconnected."></span></div></div><div class="tt-row"><div class="tt-left">Relational</div><div class="tt-right"><input class="tt-input" placeholder="Your definition…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Parts integrated into a coherent whole."></span></div></div><div class="tt-row"><div class="tt-left">Extended abstract</div><div class="tt-right"><input class="tt-input" placeholder="Your definition…" type="text"/><button class="tt-show" type="button">Show</button><span class="tt-answer" data-answer="Generalizes and transfers to new domains."></span></div></div></div></div>
+<div class="card"><div class="edad-selector-widget mini"></div>
 <h2>Sternberg’s Triarchic Intelligence</h2>
-<p>Analytic intelligence: abstraction, analysis.
-
-Creative intelligence: innovation, novelty management.
-
-Practical intelligence: applying learning to real contexts.
-Teachers can diversify assignments to tap each domain.</p>
-</div>
-<div class="card">
+<div class="tt-grid"><div class="tt-row"><div class="tt-left">Analytic</div><div class="tt-right"><div class="tt-def-shown">Analyzing, comparing, evaluating—componential skills.</div></div></div><div class="tt-row"><div class="tt-left">Creative</div><div class="tt-right"><div class="tt-def-shown">Generating ideas, coping with novelty, insight.</div></div></div><div class="tt-row"><div class="tt-left">Practical</div><div class="tt-right"><div class="tt-def-shown">Applying knowledge in real contexts; adapting, shaping, selecting environments.</div></div></div></div></div>
+<div class="card"><div class="edad-selector-widget mini"></div>
 <h2>Kolb’s Experiential Cycle</h2>
-<p>Concrete experience – hands-on, emotional engagement.
+<div class="tt-grid"><div class="tt-row"><div class="tt-left">Concrete experience</div><div class="tt-right"><div class="tt-def-shown">Doing/having an experience; direct engagement.</div></div></div><div class="tt-row"><div class="tt-left">Reflective observation</div><div class="tt-right"><div class="tt-def-shown">Watching/reflecting; considering multiple perspectives.</div></div></div><div class="tt-row"><div class="tt-left">Abstract conceptualization</div><div class="tt-right"><div class="tt-def-shown">Forming theories and concepts.</div></div></div><div class="tt-row"><div class="tt-left">Active experimentation</div><div class="tt-right"><div class="tt-def-shown">Testing ideas in practice.</div></div></div></div></div>
+<div class="card"><div class="edad-selector-widget mini"></div>
+<h2>Emotion &amp; Cognition</h2><div class="orwell-quote card"><blockquote>Here is a well-known verse from Ecclesiastes:
 
-Reflective observation – careful analysis and judgment.
+I returned and saw under the sun, that the race is not to the swift, nor the battle to the strong, neither yet bread to the wise, nor yet riches to men of understanding, nor yet favour to men of skill; but time and chance happeneth to them all.</blockquote><blockquote>Here it is in modern English:
 
-Abstract conceptualization – theorizing and logical reasoning.
-
-Active experimentation – hypothesis testing.</p>
-</div>
-<div class="card">
-<h2>Emotion &amp; Cognition</h2>
-<p>Rejecting Cartesian dualism, Damasio (1995) argues in Descartes’ Error that emotion and reason are inseparable.
-
-Positive affect enhances persistence and insight.
-
-Negative affect (e.g., anxiety) can block learning.
-Teachers should normalize emotion and monitor classroom affect.</p>
-</div>
-<div class="card">
+Objective consideration of contemporary phenomena compels the conclusion that success or failure in competitive activities exhibits no tendency to be commensurate with innate capacity, but that a considerable element of the unpredictable must invariably be taken into account.</blockquote><p>— George Orwell, “Politics and the English Language” (1946)</p></div>
+<div class="card"><div class="edad-selector-widget mini"></div>
 <h2>Threshold Concepts</h2>
-<p>Meyer & Land (2006) identify threshold concepts as transformative ideas that reorganize understanding within a discipline, turning confusion (“troublesome knowledge”) into insight.
+<div class="tt-grid"><div class="tt-row"><div class="tt-left">Transformative</div><div class="tt-right"><div class="tt-def-shown">Once understood, changes perception of a subject.</div></div></div><div class="tt-row"><div class="tt-left">Troublesome</div><div class="tt-right"><div class="tt-def-shown">Counterintuitive or conceptually difficult knowledge.</div></div></div><div class="tt-row"><div class="tt-left"></div></div></div>
+</main><script src="roster.js"></script></main></body><script>
+(function(){
+  function onReady(fn){ (document.readyState!=='loading') ? fn() : document.addEventListener('DOMContentLoaded', fn); }
+  onReady(function(){
+    document.body.addEventListener('click', function(e){
+      if(!e.target.classList.contains('tt-show')) return;
+      const row = e.target.closest('.tt-row');
+      const ans = row && row.querySelector('.tt-answer');
+      if(ans){
+        ans.textContent = ' ' + ans.getAttribute('data-answer');
+        ans.classList.add('revealed');
+        e.target.disabled = true;
+        e.target.textContent = 'Shown';
+      }
+    });
+  });
+})();</script><script id="edad-multi-selector-script">
+(function(){
+  const STORAGE_KEY = "edad601_roster_remaining_v1";
+  const FULL_ROSTER = [
+    { name: "Faria", role: "TA" },
+    { name: "Kacy", role: "Student" },
+    { name: "Ethan", role: "Student" },
+    { name: "Jason", role: "Student" },
+    { name: "Taylor D", role: "Student" },
+    { name: "Walid", role: "Student" },
+    { name: "Jene", role: "Student" },
+    { name: "Patricia", role: "Student" },
+    { name: "Taylor H", role: "Student" },
+    { name: "Pamela", role: "Student" },
+    { name: "Mengxiang", role: "Student" },
+    { name: "Masha", role: "Student" },
+    { name: "Yoon", role: "Student" },
+    { name: "Kayla", role: "Student" },
+    { name: "Sandra", role: "Student" },
+    { name: "Savannah", role: "Student" },
+    { name: "Simon", role: "Student" },
+    { name: "Becca", role: "Student" },
+    { name: "Christine", role: "Teacher" },
+    { name: "Jantsen", role: "Student" },
+    { name: "Alfredo", role: "Student" },
+    { name: "Winn", role: "Student" }
+  ];
 
-Instructors should prioritize these key concepts over exhaustive coverage.
+  function getRemaining(){
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return [...FULL_ROSTER];
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed)) return [...FULL_ROSTER];
+      return parsed.filter(x => x && typeof x.name === "string");
+    } catch(e){
+      return [...FULL_ROSTER];
+    }
+  }
+  function setRemaining(arr){ localStorage.setItem(STORAGE_KEY, JSON.stringify(arr)); }
+  function reset(){ const fresh = [...FULL_ROSTER]; setRemaining(fresh); return fresh; }
+  function drawOne(){
+    const rem = getRemaining();
+    if (rem.length === 0) return null;
+    const idx = Math.floor(Math.random() * rem.length);
+    const picked = rem.splice(idx, 1)[0];
+    setRemaining(rem);
+    return { picked, remaining: rem };
+  }
 
-Once grasped, such ideas reshape learners’ worldview and self-concept.</p>
-</div>
-</main>
-<footer>
-<p class="badge">Teaching Thinking summary pages (for class use)</p>
-</footer>
-</body>
-</html>
+  function renderAll(){
+    const hosts = document.querySelectorAll(".edad-selector-widget.mini");
+    hosts.forEach((host, i) => {
+      host.innerHTML = `
+        <div class="edad-card-mini">
+          <span class="pill">EDAD-601</span>
+          <button class="btn pick">Pick</button>
+          <button class="btn reset" title="Refill roster">Reset</button>
+          <span class="meta remaining"></span>
+          <span class="out"></span>
+        </div>
+      `;
+      const pickBtn = host.querySelector(".pick");
+      const resetBtn = host.querySelector(".reset");
+      const meta = host.querySelector(".remaining");
+      const out = host.querySelector(".out");
+
+      function updateMeta(){ const rem = getRemaining(); meta.textContent = `Remaining: ${rem.length}/${FULL_ROSTER.length}`; }
+      updateMeta();
+
+      pickBtn.addEventListener("click", () => {
+        const res = drawOne();
+        if(!res){ out.textContent = "Roster empty — Reset to refill."; updateMeta(); return; }
+        out.textContent = `${res.picked.name}`;
+        // Update all widgets' remaining counts
+        document.querySelectorAll(".edad-selector-widget.mini .remaining").forEach(el => {
+          const rem = getRemaining(); el.textContent = `Remaining: ${rem.length}/${FULL_ROSTER.length}`;
+        });
+      });
+      resetBtn.addEventListener("click", () => {
+        reset();
+        out.textContent = "Roster reset.";
+        document.querySelectorAll(".edad-selector-widget.mini .remaining").forEach(el => {
+          const rem = getRemaining(); el.textContent = `Remaining: ${rem.length}/${FULL_ROSTER.length}`;
+        });
+      });
+    });
+  }
+
+  if (getRemaining().length === 0) reset();
+  if (document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", renderAll);
+  } else {
+    renderAll();
+  }
+})();</script></body></html>
