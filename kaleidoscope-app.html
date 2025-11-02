@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaleidoscope</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #2c3e50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        #controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        button:active {
+            transform: scale(0.98);
+        }
+        
+        label {
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        
+        input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+        
+        #canvas {
+            border: 3px solid #34495e;
+            background: black;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #modalContent {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            max-width: 400px;
+        }
+
+        #modalContent h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+        }
+
+        #cancelBtn {
+            background: #95a5a6;
+        }
+
+        #cancelBtn:hover {
+            background: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <button id="shakeBtn">Shake Kaleidoscope</button>
+        <label>
+            <input type="checkbox" id="gridCheck" checked>
+            Show/Hide Grid
+        </label>
+        <button id="zoomInBtn">Zoom In</button>
+        <button id="zoomOutBtn">Zoom Out</button>
+        <button id="addShapeBtn">Add New Shape</button>
+    </div>
+    <canvas id="canvas" width="800" height="800"></canvas>
+
+    <div id="modal">
+        <div id="modalContent">
+            <h2>Add New Shape</h2>
+            <div class="form-group">
+                <label for="colorSelect">Choose a color:</label>
+                <select id="colorSelect">
+                    <option value="#0000FF">Blue</option>
+                    <option value="#00FFFF">Cyan</option>
+                    <option value="#A9A9A9">Dark Gray</option>
+                    <option value="#808080">Gray</option>
+                    <option value="#00FF00">Green</option>
+                    <option value="#D3D3D3">Light Gray</option>
+                    <option value="#FF00FF">Magenta</option>
+                    <option value="#FFA500">Orange</option>
+                    <option value="#FFC0CB">Pink</option>
+                    <option value="#FF0000">Red</option>
+                    <option value="#FFFFFF">White</option>
+                    <option value="#FFFF00">Yellow</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="sidesInput">Number of sides:</label>
+                <input type="number" id="sidesInput" value="5" min="3" max="20">
+            </div>
+            <div class="modal-buttons">
+                <button id="cancelBtn">Cancel</button>
+                <button id="confirmBtn">Add Shape</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const modal = document.getElementById('modal');
+        
+        let shapes = [];
+        let zoom = 200;
+        let showGrid = true;
+        let shapeNumber = 0;
+        
+        class Shape {
+            constructor(color, sides) {
+                this.color = color;
+                this.sides = sides;
+                this.r1 = [];
+                this.r2 = [];
+                this.generateRandomPoints();
+            }
+            
+            generateRandomPoints() {
+                this.r1 = [];
+                this.r2 = [];
+                for (let i = 0; i < this.sides; i++) {
+                    this.r1.push(Math.random() * zoom);
+                    this.r2.push(Math.random() * zoom);
+                }
+            }
+        }
+        
+        function drawGrid() {
+            if (!showGrid) return;
+            
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 1;
+            
+            // Horizontal lines
+            for (let i = 0; i < canvas.height; i += zoom) {
+                ctx.beginPath();
+                ctx.moveTo(0, i);
+                ctx.lineTo(canvas.width, i);
+                ctx.stroke();
+            }
+            
+            // Diagonal lines
+            for (let i = -canvas.width / 4; i <= canvas.width - canvas.width / 4; i += zoom) {
+                ctx.beginPath();
+                ctx.moveTo(canvas.width - i, 0);
+                ctx.lineTo(canvas.width / 2 - i, canvas.height);
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(i, 0);
+                ctx.lineTo(canvas.width / 2 + i, canvas.height);
+                ctx.stroke();
+            }
+        }
+        
+        function getReflections(shape) {
+            const w = canvas.width;
+            const h = canvas.height;
+            const reflections = [];
+            
+            // Original 6 reflections (hexagonal symmetry)
+            const base = [
+                { x: [], y: [] }, // 0
+                { x: [], y: [] }, // 1
+                { x: [], y: [] }, // 2
+                { x: [], y: [] }, // 3
+                { x: [], y: [] }, // 4
+                { x: [], y: [] }  // 5
+            ];
+            
+            for (let i = 0; i < shape.sides; i++) {
+                const r1 = shape.r1[i];
+                const r2 = shape.r2[i];
+                
+                // Six-fold rotational symmetry
+                base[0].x.push(w / 2 + r1);
+                base[0].y.push(h / 2 - r2);
+                
+                base[1].x.push(w / 2 + r1);
+                base[1].y.push(h / 2 + r2);
+                
+                base[2].x.push(w / 2 + (r1 * Math.cos(120 * Math.PI / 180) + r2 * Math.sin(120 * Math.PI / 180)));
+                base[2].y.push(h / 2 - (-r1 * Math.sin(120 * Math.PI / 180) + r2 * Math.cos(120 * Math.PI / 180)));
+                
+                base[3].x.push(w / 2 + (r1 * Math.cos(120 * Math.PI / 180) - r2 * Math.sin(120 * Math.PI / 180)));
+                base[3].y.push(h / 2 - (-r1 * Math.sin(120 * Math.PI / 180) - r2 * Math.cos(120 * Math.PI / 180)));
+                
+                base[4].x.push(w / 2 + (r1 * Math.cos(240 * Math.PI / 180) + r2 * Math.sin(240 * Math.PI / 180)));
+                base[4].y.push(h / 2 - (-r1 * Math.sin(240 * Math.PI / 180) + r2 * Math.cos(240 * Math.PI / 180)));
+                
+                base[5].x.push(w / 2 + (r1 * Math.cos(240 * Math.PI / 180) - r2 * Math.sin(240 * Math.PI / 180)));
+                base[5].y.push(h / 2 - (-r1 * Math.sin(240 * Math.PI / 180) - r2 * Math.cos(240 * Math.PI / 180)));
+            }
+            
+            reflections.push(...base);
+            
+            // Create tiled reflections
+            const maxTiles = Math.floor(w / (2 * zoom));
+            for (let j = 1; j <= maxTiles; j++) {
+                for (let baseIdx = 0; baseIdx < 6; baseIdx++) {
+                    const translations = [
+                        { dx: 1.5 * j * zoom, dy: j * zoom },
+                        { dx: -1.5 * j * zoom, dy: -j * zoom },
+                        { dx: -1.5 * j * zoom, dy: j * zoom },
+                        { dx: 1.5 * j * zoom, dy: -j * zoom },
+                        { dx: 0, dy: 2 * j * zoom },
+                        { dx: 0, dy: -2 * j * zoom },
+                        { dx: 3 * j * zoom, dy: 0 },
+                        { dx: -3 * j * zoom, dy: 0 },
+                        { dx: -1.5 * j * zoom, dy: 3 * j * zoom },
+                        { dx: 1.5 * j * zoom, dy: -3 * j * zoom },
+                        { dx: -1.5 * j * zoom, dy: -3 * j * zoom },
+                        { dx: 1.5 * j * zoom, dy: 3 * j * zoom }
+                    ];
+                    
+                    for (const trans of translations) {
+                        const newReflection = { x: [], y: [] };
+                        for (let i = 0; i < shape.sides; i++) {
+                            newReflection.x.push(base[baseIdx].x[i] + trans.dx);
+                            newReflection.y.push(base[baseIdx].y[i] + trans.dy);
+                        }
+                        reflections.push(newReflection);
+                    }
+                }
+            }
+            
+            return reflections;
+        }
+        
+        function drawShape(shape) {
+            const reflections = getReflections(shape);
+            ctx.fillStyle = shape.color;
+            
+            for (const reflection of reflections) {
+                ctx.beginPath();
+                ctx.moveTo(reflection.x[0], reflection.y[0]);
+                for (let i = 1; i < reflection.x.length; i++) {
+                    ctx.lineTo(reflection.x[i], reflection.y[i]);
+                }
+                ctx.closePath();
+                ctx.fill();
+            }
+        }
+        
+        function drawBlackCorners() {
+            ctx.fillStyle = 'black';
+            
+            // Top-left
+            ctx.beginPath();
+            ctx.moveTo(0, 0);
+            ctx.lineTo(0, canvas.height / 2);
+            ctx.lineTo(canvas.width / 4, 0);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Bottom-left
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height);
+            ctx.lineTo(0, canvas.height / 2);
+            ctx.lineTo(canvas.width / 4, canvas.height);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Top-right
+            ctx.beginPath();
+            ctx.moveTo(canvas.width, 0);
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.lineTo(3 * canvas.width / 4 + 5, 0);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Bottom-right
+            ctx.beginPath();
+            ctx.moveTo(canvas.width, canvas.height);
+            ctx.lineTo(canvas.width, canvas.height / 2);
+            ctx.lineTo(3 * canvas.width / 4 + 5, canvas.height);
+            ctx.closePath();
+            ctx.fill();
+        }
+        
+        function render() {
+            ctx.fillStyle = 'black';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            drawGrid();
+            
+            for (const shape of shapes) {
+                drawShape(shape);
+            }
+            
+            drawBlackCorners();
+        }
+        
+        function shake() {
+            for (const shape of shapes) {
+                shape.generateRandomPoints();
+            }
+            render();
+        }
+        
+        // Event handlers
+        document.getElementById('shakeBtn').addEventListener('click', shake);
+        
+        document.getElementById('gridCheck').addEventListener('change', (e) => {
+            showGrid = e.target.checked;
+            render();
+        });
+        
+        document.getElementById('zoomInBtn').addEventListener('click', () => {
+            zoom *= 2;
+            shake();
+        });
+        
+        document.getElementById('zoomOutBtn').addEventListener('click', () => {
+            zoom = Math.max(25, zoom / 2);
+            shake();
+        });
+        
+        document.getElementById('addShapeBtn').addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+
+        document.getElementById('cancelBtn').addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        document.getElementById('confirmBtn').addEventListener('click', () => {
+            const color = document.getElementById('colorSelect').value;
+            const sides = parseInt(document.getElementById('sidesInput').value);
+            
+            if (isNaN(sides) || sides < 3) {
+                alert('Please enter a valid number of sides (3 or more)');
+                return;
+            }
+            
+            shapes.push(new Shape(color, sides));
+            modal.style.display = 'none';
+            render();
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Initial render
+        render();
+    </script>
+</body>
+</html>
