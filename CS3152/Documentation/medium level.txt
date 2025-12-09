@@ -1,0 +1,22 @@
+				level.AddMultipleWalls(2, 3, 2, 17, true);
+                level.AddMultipleWalls(0, 18, 0, 18, false);
+                level.AddMultipleWalls(3, 15, 4, 15, true);
+                level.AddMultipleWalls(3, 5, 4, 5, true);
+                level.AddMultipleWalls(13, 12, 13, 12, false);
+                level.AddMultipleWalls(11, 11, 11, 11, false);
+                level.AddMultipleWalls(9, 9, 9, 9, false);
+                level.AddMultipleWalls(11, 7, 11, 7, false);
+                level.AddMultipleWalls(13, 5, 13, 5, false);
+                level.AddPlayerTemp(0, 17);
+
+                Door d = new Door(level, GameEngine.Instance.GetTexture("openDoorTexture"), GameEngine.Instance.GetTexture("closeDoorTexture"), 3, 4, 0, 0.0f, 0.0f, false);
+                level.AddQueuedObject(d);
+                level.AddQueuedObject(new Key(d, level, GameEngine.Instance.GetTexture("keyTexture"), 8, 1, 0, 0.0f, 0.0f, false));
+
+                level.SetReflectionOrientation("D");
+                level.AddDLine(1);
+                level.AddDLine(-1);
+                level.SetCanReflectHorizontal(false);
+                level.SetCanReflectVertical(false);
+                level.SetCanReflectDiagonal(true);
+                level.SetReflectionLinePosition(1);

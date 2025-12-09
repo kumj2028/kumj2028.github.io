@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reflexio – Game Manual</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="container site-header">
+    <div class="site-title">CS-3152 Game Design</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Overview</a>
+      <a href="concept.html">Concept</a>
+      <a href="gameplay.html">Gameplay</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="testing.html">Testing & Reports</a>
+      <a href="manual.html">Game Manual</a>
+      <a href="prototype.html">Non-Digital Prototype</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Game manual (player-facing)</h2>
+        <p>Short summary of the manual for Reflexio.</p>
+      </div>
+
+      <div class="card">
+        <h3>System requirements</h3>
+        <ul class="bullet-list">
+          <li>Windows Vista / XP / 7 or similar.</li>
+          <li>DirectX 9.0c with Shader Model 1.1 support.</li>
+          <li>Approximately 512 MB of RAM.</li>
+          <li>~100 MB of disk space.</li>
+        </ul>
+
+        <h3>Objective</h3>
+        <p>
+          Guide Joey to the level’s exit door while collecting zippers (keys)
+          and avoiding hazards like spikes and bottomless pits. Use the
+          reflection mechanic to reconfigure the level and reach otherwise
+          impossible locations.
+        </p>
+
+        <h3>Controls (as described for players)</h3>
+        <ul class="bullet-list">
+          <li>Arrow keys: move and jump Joey.</li>
+          <li>W/A/S/D/X: position the reflection axis.</li>
+          <li>R: reflect the world about the current axis.</li>
+          <li>Other keys: as described in the full manual / in-game help.</li>
+        </ul>
+
+        <h3>Game elements</h3>
+        <ul class="bullet-list">
+          <li>
+            <strong>Joey:</strong> the player-controlled baby koala.
+          </li>
+          <li>
+            <strong>Blocks:</strong> basic geometry that can often be
+            reflected to form walls or floors.
+          </li>
+          <li>
+            <strong>Non-reflectable blocks:</strong> special tiles that do
+            not move when the world is reflected, anchoring parts of the
+            puzzle.
+          </li>
+          <li>
+            <strong>Buddy blocks & switches:</strong> moveable blocks and
+            switches that open doors when activated.
+          </li>
+          <li>
+            <strong>Zippers:</strong> collectibles required to open the exit
+            door.
+          </li>
+          <li>
+            <strong>Spikes and pits:</strong> instant-death hazards to
+            avoid.
+          </li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>Full manual</h3>
+        <p class="card-note">
+          For the original formatted manual, see:
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <a href="Documentation/GameManual.docx">
+              GameManual (docx)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. Reflexio manual summary.</div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

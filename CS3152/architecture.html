@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reflexio – Architecture & Level Creator</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="container site-header">
+    <div class="site-title">CS-3152 Game Design</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Overview</a>
+      <a href="concept.html">Concept</a>
+      <a href="gameplay.html">Gameplay</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="testing.html">Testing & Reports</a>
+      <a href="manual.html">Game Manual</a>
+      <a href="prototype.html">Non-Digital Prototype</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Software architecture</h2>
+        <p>Based on the Architectural Specification documents.</p>
+      </div>
+
+      <div class="card">
+        <h3>High-level structure</h3>
+        <p>
+          The architecture follows a controller-driven model where a central
+          <strong>game engine</strong> updates and draws the game each
+          frame. The design is documented with Class–Responsibility–
+          Collaboration (CRC) tables.
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <strong>Controllers:</strong> orchestrate game flow, input,
+            and scene transitions.
+          </li>
+          <li>
+            <strong>Models:</strong> represent in-game entities such as
+            Joey, blocks, hazards, and the reflection axis.
+          </li>
+          <li>
+            <strong>Views:</strong> handle drawing sprites and UI elements
+            each frame.
+          </li>
+        </ul>
+
+        <h3>GameEngine responsibilities</h3>
+        <p>
+          The <strong>GameEngine</strong> is the high-level class that
+          coordinates the update–draw loop. It advances the simulation,
+          delegates input handling, manages level transitions, and invokes
+          rendering.
+        </p>
+
+        <h3>Level representation</h3>
+        <p>
+          Levels are defined using a grid-like representation (as seen in
+          <code>medium level.txt</code>) and loaded into game objects by
+          a level loader. Helpers like <code>AddMultipleWalls</code> create
+          contiguous wall segments from simple coordinate ranges.
+        </p>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>Level creator architecture</h3>
+        <p>
+          A dedicated level-creator tool is specified separately. It uses a
+          similar underlying representation to the runtime, allowing
+          designers to place tiles, hazards, and reflection-relevant
+          structures, then export levels the game can consume directly.
+        </p>
+        <p>
+          Responsibilities include:
+        </p>
+        <ul class="bullet-list">
+          <li>Editing tiles and objects on a grid.</li>
+          <li>Saving and loading level files in the agreed format.</li>
+          <li>Ensuring exported levels respect the reflection rules.</li>
+        </ul>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>Source documents</h3>
+        <ul class="bullet-list">
+          <li>
+            <a href="Documentation/Architectural%20Specification.docx">
+              Architectural Specification (docx)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/Architectural%20Specification%20for%20Level%20Creator.docx">
+              Architectural Specification for Level Creator (docx)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/LevelDesignLab.docx">
+              LevelDesignLab (docx)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/medium%20level.txt">
+              medium level.txt (example level file)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. Reflexio architecture summary.</div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

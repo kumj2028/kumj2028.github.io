@@ -1,77 +1,427 @@
+:root {
+  --bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --accent: #1f2937;
+  --accent-soft: #4b5563;
+  --border-subtle: #e5e7eb;
+  --link: #2563eb;
+  --link-hover: #1d4ed8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: sans-serif;
-    margin: 20px;
-    background-color: #f4f4f4;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: #111827;
 }
 
-h1 {
+/* Layout shell */
+
+header {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 20px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+nav a {
+  margin-left: 16px;
+  text-decoration: none;
+  color: var(--accent-soft);
+  font-size: 0.95rem;
+}
+
+nav a:first-child {
+  margin-left: 0;
+}
+
+nav a:hover {
+  color: var(--link-hover);
+}
+
+main {
+  padding-bottom: 48px;
+}
+
+/* Hero section */
+
+.hero {
+  padding: 56px 20px 40px;
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: center;
+}
+
+.hero-text {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+
+.hero-tag {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  color: var(--accent-soft);
+  margin-bottom: 8px;
+}
+
+.hero-title {
+  font-size: clamp(2.1rem, 4vw, 2.7rem);
+  margin: 0 0 8px;
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  margin: 0 0 16px;
+  color: var(--accent-soft);
+  max-width: 32rem;
+}
+
+.hero-description {
+  font-size: 0.98rem;
+  margin: 0 0 24px;
+  color: #4b5563;
+  max-width: 36rem;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+
+.btn-primary:hover {
+  background: #111827;
+  border-color: #111827;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--accent-soft);
+  border-color: var(--border-subtle);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.hero-image {
+  flex: 0 0 220px;
+  max-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-image-inner {
+  background: radial-gradient(circle at 30% 20%, #e0f2fe, #e5e7eb);
+  border-radius: 24px;
+  padding: 18px;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portrait-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 18px;
+  border: 2px dashed rgba(15, 23, 42, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-align: center;
+  padding: 12px;
+}
+
+/* Content sections */
+
+.section {
+  padding: 8px 20px 0;
+}
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 12px;
+}
+
+.section-header h2 {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.section-header p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--accent-soft);
+  max-width: 40rem;
+}
+
+.section + .section {
+  margin-top: 24px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  color: var(--accent);
+}
+
+.card small {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-soft);
+}
+
+.card p {
+  margin: 0 0 10px;
+  font-size: 0.93rem;
+  color: #4b5563;
+  line-height: 1.55;
+}
+
+.card a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--link);
+}
+
+.card a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* Utility for that bullet list in the intro card */
+
+.bullet-list {
+  margin: 0 0 0.5rem 1.2rem;
+  padding: 0;
+  font-size: 0.93rem;
+  color: #4b5563;
+  line-height: 1.55;
+}
+
+.card-note {
+  margin-top: 0.5rem;
+  font-size: 0.93rem;
+  color: #4b5563;
+}
+
+/* Footer */
+
+footer {
+  margin-top: 40px;
+  border-top: 1px solid var(--border-subtle);
+  background: #ffffff;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 20px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.footer-inner a {
+  color: var(--link);
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.footer-inner a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive tweaks */
+
+@media (max-width: 640px) {
+  .site-header {
+    justify-content: center;
     text-align: center;
-    color: #333;
+  }
+
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    margin: 4px 8px;
+  }
+
+  .hero {
+    padding-top: 32px;
+  }
+
+  .hero-inner {
+    text-align: center;
+  }
+
+  .hero-text,
+  .hero-description {
+    margin-inline: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-image {
+    order: -1;
+  }
 }
 
-.cipher-container {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+/* Courses dropdown */
+
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.cipher-container h2 {
-    margin-top: 0;
-    color: #555;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+.nav-dropbtn {
+  background: transparent;
+  border: none;
+  color: var(--accent-soft);
+  font-size: 0.95rem;
+  padding: 0;
+  margin-left: 16px;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #444;
+/* Match spacing of first link */
+nav a:first-child + a + .nav-dropdown .nav-dropbtn {
+  margin-left: 16px;
 }
 
-input[type="text"],
-input[type="number"],
-textarea {
-    width: calc(100% - 22px); /* Adjust for padding and border */
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 1em;
+.nav-dropbtn:hover {
+  color: var(--link-hover);
 }
 
-textarea {
-    resize: vertical;
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  min-width: 180px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+  padding: 6px 0;
+  z-index: 50;
 }
 
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 1em;
-    margin-top: 5px;
-    margin-bottom: 10px;
+.nav-dropdown-menu a {
+  display: block;
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  color: var(--accent-soft);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-button:hover {
-    background-color: #0056b3;
+.nav-dropdown-menu a:hover {
+  background: #f3f4f6;
+  color: var(--accent);
 }
 
-textarea[readonly] {
-    background-color: #e9ecef;
-    cursor: not-allowed;
+/* Show menu on hover (desktop) */
+.nav-dropdown:hover .nav-dropdown-menu {
+  display: block;
 }
 
-.error-message {
-    color: red;
-    font-size: 0.9em;
-    margin-top: 5px;
+/* Small-screen tweaks: let dropdown behave nicely in wrapped nav */
+@media (max-width: 640px) {
+  .nav-dropdown {
+    margin: 4px 8px;
+  }
+
+  .nav-dropbtn {
+    margin-left: 0;
+  }
 }
 

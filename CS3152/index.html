@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS3152 Game Design – Reflexio</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="container site-header">
+    <div class="site-title">CS-3152 Game Design</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Overview</a>
+      <a href="concept.html">Concept</a>
+      <a href="gameplay.html">Gameplay</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="testing.html">Testing & Reports</a>
+      <a href="manual.html">Game Manual</a>
+      <a href="prototype.html">Non-Digital Prototype</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">CS3152 Game Design</div>
+      <h1 class="hero-title">Reflexio</h1>
+      <p class="hero-subtitle">
+        A puzzle-platformer where a baby koala is able to reflect the world.
+      </p>
+      <p class="hero-description">
+        This mini-site collects the major design documents for
+        <strong>Reflexio</strong>: concept & vision, gameplay specification,
+        software architecture, level design, testing, and the player-facing
+        game manual.
+      </p>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Design documents</h2>
+        <p>High-level vision and how it turns into moment-to-moment play.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <small>Vision</small>
+          <h3>Concept & High-Level Pitch</h3>
+          <p>
+            High concept statement, setting, protagonist (baby koala Joey),
+            goals, and unique selling points such as the reflection mechanic.
+          </p>
+          <a href="concept.html">View concept page &raquo;</a>
+        </article>
+
+        <article class="card">
+          <small>Early Design</small>
+          <h3>Non-Digital Prototype</h3>
+          <p>
+            The original tabletop version used to test core ideas before
+            building the digital game, including its rules of play.
+          </p>
+          <a href="prototype.html">View non-digital prototype &raquo;</a>
+        </article>
+
+        <article class="card">
+          <small>Systems & Mechanics</small>
+          <h3>Gameplay Specification</h3>
+          <p>
+            Core loop, controls, reflection axis behavior, win/lose states,
+            difficulty curve, and level structure.
+          </p>
+          <a href="gameplay.html">View gameplay page &raquo;</a>
+        </article>
+
+        <article class="card">
+          <small>Code</small>
+          <h3>Architecture & Tools</h3>
+          <p>
+            Overview of the game’s software architecture and the
+            level-creator specification that supports building new content.
+          </p>
+          <a href="architecture.html">View architecture page &raquo;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Production, testing, and player-facing docs</h2>
+        <p>How the team iterated from prototypes to final release.</p>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <small>Playtesting</small>
+          <h3>Testing & Two-Week Reports</h3>
+          <p>
+            Playtest script, focus on teaching reflection, and milestone
+            reports from gameplay prototype through final release.
+          </p>
+          <a href="testing.html">View testing page &raquo;</a>
+        </article>
+
+        <article class="card">
+          <small>Players</small>
+          <h3>Game Manual</h3>
+          <p>
+            Player-facing manual including system requirements, controls,
+            hazards, and game elements like blocks, spikes, and zippers.
+          </p>
+          <a href="manual.html">View manual page &raquo;</a>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. CS3152 Game Design documentation.</div>
+    <div>Game: Reflexio.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

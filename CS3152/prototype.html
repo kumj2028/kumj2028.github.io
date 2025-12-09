@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reflexio – Non-Digital Prototype</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="container site-header">
+    <div class="site-title">CS-3152 Game Design</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Overview</a>
+      <a href="concept.html">Concept</a>
+      <a href="gameplay.html">Gameplay</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="testing.html">Testing & Reports</a>
+      <a href="manual.html">Game Manual</a>
+      <a href="prototype.html">Non-Digital Prototype</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Non-digital prototype</h2>
+        <p>Board-game style prototype used to validate the core ideas.</p>
+      </div>
+
+      <div class="card">
+        <h3>Purpose</h3>
+        <p>
+          Before writing code, the team built a non-digital version of
+          Reflexio to test the reflection mechanic, puzzle feel, and level
+          structure. This allowed rapid iteration on rules without the
+          overhead of implementation.
+        </p>
+
+        <h3>Rules of play</h3>
+        <p>
+          The rules document describes how players move a token representing
+          Joey on a printed grid, how the reflection line is placed and
+          invoked, and how goals and hazards work in this physical format.
+        </p>
+        <ul class="bullet-list">
+          <li>Turn structure and actions available each turn.</li>
+          <li>When and how reflections can be triggered.</li>
+          <li>Conditions for success (reaching the exit) and failure.</li>
+        </ul>
+
+        <h3>Artifacts</h3>
+        <ul class="bullet-list">
+          <li>
+            <a href="Documentation/Non-Digital%20Prototype/Rules%20of%20Play.pdf">
+              Rules of Play (PDF)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/Non-Digital%20Prototype/Image053.jpg">
+              Prototype board / components image (JPG)
+            </a>
+          </li>
+        </ul>
+        <p class="card-note">
+          These files show how the digital design was grounded in a
+          table-top prototype early in the course.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. Reflexio non-digital prototype.</div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

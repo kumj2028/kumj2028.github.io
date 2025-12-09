@@ -1,36 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mengxiang's Experimental Website</title>
-<link rel="stylesheet" href="style.css">
-<style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0}
-header,nav,main{max-width:1000px;margin:0 auto;padding:16px}
-nav a{margin-right:12px;text-decoration:none}
-.course-block{padding:12px 0;border-top:1px solid #e5e7eb}
-.course-block h2{margin:8px 0 12px}
-.card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:16px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mengxiang's Experimental Website</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>Mengxiang's Experimental Website</h1>
-  <nav>
-    <a href="MATH-645/index.html">MATH-645</a>
-    <a href="EDAD-601/index.html">EDAD-601</a>
-    <a href="about.html">About Me</a>
-  </nav>
-</header>
-<main>
-  <section class="course-block" id="MATH-645">
-    <h2>MATH-645: A Survey of Mathematical Problems</h2>
-    <a href="MATH-645/index.html">Open MATH-645 »</a>
+  <header>
+    <div class="container site-header">
+      <div class="site-title">Mengxiang's Experimental Website</div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="cv.html">CV</a>
+
+        <div class="nav-dropdown">
+          <button class="nav-dropbtn" type="button">
+            Courses ▾
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="MATH-645/index.html">MATH-645</a>
+            <a href="EDAD-601/index.html">EDAD-601</a>
+            <a href="CS3152/index.html">CS3152 Game Design</a>
+          </div>
+        </div>
+
+        <a href="about.html">About Me</a>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-tag">Howdy, I'm</div>
+        <h1 class="hero-title">Mengxiang!</h1>
+        <p class="hero-subtitle">
+          I'm currently interested in math and education, as well as experimenting with web-based course materials and interactive demos.
+        </p>
+        <p class="hero-description">
+          This site is a sandbox for collecting notes, course projects, and teaching experiments. 
+          Feel free to explore, borrow ideas, or just poke around.
+        </p>
+      </div>
+
+      <div class="hero-image" aria-hidden="true">
+        <div class="hero-image-inner">
+          <img src="mengxiang.png" alt="Photo of Mengxiang" style="width:100%;border-radius:18px;object-fit:cover;">
+        </div>
+      </div>
+    </div>
   </section>
-  <section class="course-block" id="EDAD-601">
-    <h2>EDAD-601: College Teaching</h2>
-    <a href="EDAD-601/index.html">Open EDAD-601 »</a>
-  </section>
-</main>
+
+  <main>
+    <!-- About / intro section -->
+    <section class="section" id="about-site">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2>Welcome to my academic sandbox</h2>
+          <p>A home base for coursework, teaching ideas, and experiments with web-based materials.</p>
+        </div>
+        <div class="card">
+          <p>
+            You'll mainly find documentation relating to my current and past courses.
+            The structure will evolve over time, but the navigation above should always get you to the main sections.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses section -->
+    <section class="section" id="courses">
+      <div class="section-inner">
+        <div class="section-header">
+          <h2>Courses Taken</h2>
+          <p>Quick links into the course-specific sub-sites.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card">
+            <small>Spring 2025</small>
+            <h3>MATH-645: A Survey of Mathematical Problems</h3>
+            <p>
+              Problem-driven explorations, notes, and occasional interactive widgets related to topics from
+              the course. This section is where most of the math experiments live.
+            </p>
+            <a href="MATH-645/index.html">Open MATH-645 &raquo;</a>
+          </article>
+
+          <article class="card">
+            <small>Fall 2025</small>
+            <h3>EDAD-601: College Teaching</h3>
+            <p>
+              Materials, activities, and prototypes focused on teaching thinking, assessment, and
+              classroom practice, with an emphasis on experimentation.
+            </p>
+            <a href="EDAD-601/index.html">Open EDAD-601 &raquo;</a>
+          </article>
+
+          <article class="card">
+            <small>Undergraduate</small>
+            <h3>CS-3152: Game Design</h3>
+            <p>
+              Documentation hub for our game <strong>Reflexio</strong>, including the
+              concept document, gameplay specification, architecture, level design
+              notes, testing reports, and player manual.
+            </p>
+            <a href="CS3152/index.html">Open CS3152 Game Design &raquo;</a>
+          </article>
+
+
+          <article class="card">
+            <small>Personal</small>
+            <h3>About Me</h3>
+            <p>
+              A brief overview of who I am, what I’m studying, and why this site exists as a playground
+              for both math and teaching ideas.
+            </p>
+            <a href="about.html">Go to About Me &raquo;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>&copy; <span id="year"></span> Mengxiang. Experimental academic website.</div>
+      <div>
+        Hosted on GitHub Pages.
+        <a href="https://kumj2028.github.io" target="_blank" rel="noopener noreferrer">View root site</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Tiny enhancement: keep the year up to date
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

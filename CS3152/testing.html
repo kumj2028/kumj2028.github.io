@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reflexio – Testing & Two-Week Reports</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="container site-header">
+    <div class="site-title">CS-3152 Game Design</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Overview</a>
+      <a href="concept.html">Concept</a>
+      <a href="gameplay.html">Gameplay</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="testing.html">Testing & Reports</a>
+      <a href="manual.html">Game Manual</a>
+      <a href="prototype.html">Non-Digital Prototype</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Playtesting & iteration</h2>
+        <p>How Reflexio was evaluated and refined over the semester.</p>
+      </div>
+
+      <div class="card">
+        <h3>Test script focus</h3>
+        <p>
+          The playtest script targets three main questions:
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <strong>Understanding reflection:</strong> can players grasp the
+            reflection mechanic without heavy visual aids?
+          </li>
+          <li>
+            <strong>Controls:</strong> do movement and axis control feel
+            responsive and not clunky?
+          </li>
+          <li>
+            <strong>Clarity:</strong> are objectives (reach the door, avoid
+            spikes, collect zipper) obvious?
+          </li>
+        </ul>
+        <p>
+          The script instructs players to think aloud while playing and
+          uses a fixed control scheme (WASD/X to move the reflection line,
+          R to reflect, arrow keys to move and jump).
+        </p>
+        <p>
+          Facilitators observe how quickly players discover the reflection
+          mechanic, whether they can predict the outcome of a reflection,
+          and where confusion or frustration arises.
+        </p>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>Two-week milestone reports</h3>
+        <p>
+          The two-week reports document progress from early prototypes to
+          final release:
+        </p>
+        <ul class="bullet-list">
+          <li>
+            <strong>Report 1 – Gameplay Prototype:</strong> building and
+            validating the core reflection mechanic.
+          </li>
+          <li>
+            <strong>Report 2 – Technical Prototype:</strong> stabilizing the
+            engine and level pipeline.
+          </li>
+          <li>
+            <strong>Report 3 – Alpha Release:</strong> first full slice of
+            gameplay with multiple levels.
+          </li>
+          <li>
+            <strong>Report 4 – Beta Release:</strong> content complete,
+            focusing on polish and bug fixing.
+          </li>
+          <li>
+            <strong>Report 5 – Final Release:</strong> final tuning and
+            reflection on what worked and what didn’t.
+          </li>
+        </ul>
+        <p>
+          Together, they show how playtesting feedback and technical
+          constraints shaped the final game.
+        </p>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>Source documents</h3>
+        <ul class="bullet-list">
+          <li>
+            <a href="Documentation/Test%20Script.txt">
+              Test Script (txt)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/Two-Week%20Report%201%20-%20Gameplay%20Prototype.docx">
+              Two-Week Report 1 – Gameplay Prototype (docx)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/Two-Week%20Report%202%20-%20Technical%20Prototype.docx">
+              Two-Week Report 2 – Technical Prototype (docx)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/Two-Week%20Report%203%20-%20Alpha%20Release.docx">
+              Two-Week Report 3 – Alpha Release (docx)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/Two-Week%20Report%204%20-%20Beta%20Release.docx">
+              Two-Week Report 4 – Beta Release (docx)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/Two-Week%20Report%205%20-%20Final%20Release.docx">
+              Two-Week Report 5 – Final Release (docx)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/Milestone%20Document.docx">
+              Milestone Document (docx)
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. Reflexio testing summary.</div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

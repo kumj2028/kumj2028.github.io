@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reflexio – Gameplay Specification</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="container site-header">
+    <div class="site-title">CS-3152 Game Design</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="index.html">Overview</a>
+      <a href="concept.html">Concept</a>
+      <a href="gameplay.html">Gameplay</a>
+      <a href="architecture.html">Architecture</a>
+      <a href="testing.html">Testing & Reports</a>
+      <a href="manual.html">Game Manual</a>
+      <a href="prototype.html">Non-Digital Prototype</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Gameplay specification</h2>
+        <p>Based on the revised Gameplay Specification and related docs.</p>
+      </div>
+
+      <div class="card">
+        <h3>Core loop</h3>
+        <p>
+          Each level is a compact puzzle. The player navigates Joey through
+          platforms and hazards, manipulating a <strong>reflection axis</strong>
+          to rearrange the level. The loop is:
+        </p>
+        <ul class="bullet-list">
+          <li>Survey the level and identify the exit and key obstacles.</li>
+          <li>Move the reflection axis into a useful position.</li>
+          <li>Trigger reflection to transform the layout.</li>
+          <li>Platform through the new configuration toward the exit door.</li>
+          <li>If Joey dies, restart quickly and try a new plan.</li>
+        </ul>
+
+        <h3>Controls (from gameplay & test script)</h3>
+        <ul class="bullet-list">
+          <li><strong>Arrow keys:</strong> move and jump Joey.</li>
+          <li>
+            <strong>W/A/S/D/X:</strong> move the line of reflection around
+            the level (exact mapping documented in the implementation).
+          </li>
+          <li><strong>R:</strong> trigger reflection using the current axis.</li>
+        </ul>
+
+        <h3>Reflection axis</h3>
+        <p>
+          The player can position the reflection axis and then flip the
+          world about that line. Depending on the level, the axis may be
+          horizontal or vertical; placing it cleverly is essential to
+          turning gaps into bridges, dodging enemies, or making platforms
+          reachable.
+        </p>
+
+        <h3>Objects & hazards</h3>
+        <ul class="bullet-list">
+          <li>
+            <strong>Reflectable blocks:</strong> move when the world is
+            reflected, allowing them to become floors, walls, or stepping
+            stones.
+          </li>
+          <li>
+            <strong>Non-reflectable blocks:</strong> fixed geometry that
+            anchors the puzzle and constrains solutions.
+          </li>
+          <li><strong>Spikes & pits:</strong> kill Joey on contact.</li>
+          <li>
+            <strong>Zippers / keys:</strong> collectibles that open the exit
+            door once obtained.
+          </li>
+        </ul>
+
+        <h3>Difficulty & progression</h3>
+        <p>
+          Early levels teach movement and basic reflection in safe
+          contexts. Later levels combine multiple reflection steps, moving
+          axes, and timing hazards to require deeper planning. Failure is
+          frequent but low-friction thanks to quick restarts and short
+          stages.
+        </p>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>Source documents</h3>
+        <ul class="bullet-list">
+          <li>
+            <a href="Documentation/GameplaySpecification%20-%20Revised.docx">
+              GameplaySpecification – Revised (docx)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/GameplaySpecification.docx">
+              GameplaySpecification – Original (docx)
+            </a>
+          </li>
+          <li>
+            <a href="Documentation/Test%20Script.txt">
+              Playtest Test Script (txt)
+            </a>
+          </li>
+        </ul>
+        <p class="card-note">
+          These files provide the detailed behavior, including edge cases
+          and examples. This page captures the core player-facing design.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. Reflexio gameplay summary.</div>
+  </div>
+</footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

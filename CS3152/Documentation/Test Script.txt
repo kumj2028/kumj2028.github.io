@@ -1,0 +1,18 @@
+Artifacts (what we're testing)
+ - Difficulty of conceptualizing reflection without visual aids (shadows, etc)
+ - Controls are easy to use (not clunky)
+ - Objectives and obstacles are clear (go to door, avoid spikes, collect zipper)
+
+Script
+ - Welcome to Reflexio.  We would like you to test one of the sample levels that we've created.  It may be difficult, because it is a middle-difficulty level, but we are testing the game and not your ability.  We want to see how you learn the controls and how you move about the level.
+ - As you go along please tell us everything you're thinking out loud.  We may also jump in and ask questions.
+ - Controls are as follows: WASDX to move the line of reflection, R to reflect, and arrow keys to move/jump
+
+Tasks
+ - Explore (and ask them what they think they should do)
+ - Reach the top to grab the zipper 
+ - DON'T MENTION THE JUMP+REFLECT AT THE TOP (after they grab the zipper)
+
+Questions
+ - At very beginning: what is your objective in this level, and what do you need to do to accomplish this?
+ - At the end: what did you find to be the most challenging aspect of the level?
