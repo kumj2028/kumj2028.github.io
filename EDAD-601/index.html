@@ -1,19 +1,125 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>EDAD-601: Teaching Thinking</title>
-<link href="../style.css" rel="stylesheet"/>
-<style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-main{max-width:1000px;margin:0 auto;padding:16px}
-h1{margin:8px 0 12px}.card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:16px}
-ul{line-height:1.8}.badge{float:right;padding:2px 8px;border-radius:999px;background:#eef2ff;border:1px solid #c7d2fe;font-size:12px}
-</style></head>
-<body><main>
-<h1>EDAD-601: College Teaching <span class="badge">EDAD-601</span></h1>
-<div class="card"><p>Classroom Teaching Project.</p></div>
-<h2>Pages</h2>
-<ul><li><a href="teaching-thinking/index.html">Student Cognitive Development</a></li>
-<p><a href="../index.html">← Back to Home</a></p>
-</main><script src="teaching-thinking/roster.js"></script></body></html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EDAD-601: College Teaching</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+<header>
+  <div class="container site-header">
+    <div class="site-title">EDAD-601: College Teaching</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../cv.html">CV</a>
+
+      <div class="nav-dropdown">
+        <button class="nav-dropbtn" type="button">
+          Courses ▾
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="../MATH-645/index.html">MATH-645</a>
+          <a href="index.html">EDAD-601</a>
+          <a href="../CS3152/index.html">CS3152 Game Design</a>
+        </div>
+      </div>
+
+      <a href="../about.html">About Me</a>
+      <a href="../philosophy.html">Teaching Philosophy</a>
+      <a href="../syllabus.html">Syllabus</a>
+      <a href="../evaluation.html">Teaching Evaluation</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Course Site</div>
+      <h1 class="hero-title">EDAD-601: College Teaching</h1>
+      <p class="hero-subtitle">
+        Exploring student cognitive development and teaching thinking in higher education.
+      </p>
+      <p class="hero-description">
+        This space collects materials for my EDAD-601 classroom teaching project: activities,
+        reflections, and interactive tools focused on how students think and how instructors
+        can better support that thinking.
+      </p>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="section" id="overview">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Project overview</h2>
+        <p>A brief description of what lives in this EDAD-601 area of the site.</p>
+      </div>
+
+      <div class="card">
+        <p>
+          As part of EDAD-601, I designed and taught a lesson on student cognitive development
+          and obstacles to higher-order thinking. The materials here document that lesson:
+          the interactive website, supporting activities, and follow-up reflections.
+        </p>
+        <p class="card-note">
+          You can use these pages as a reference for future teaching, or as examples of how
+          web-based tools can support college teaching.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pages">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Pages</h2>
+        <p>Entry points into the EDAD-601 project materials.</p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <small>Teaching Thinking</small>
+          <h3>Lesson Plan</h3>
+          <p>
+            The full lesson plan for my EDAD-601 teaching experiment, including
+            objectives, activities, etc.
+          </p>
+          <a href="lesson_plan.html">Open Lesson Plan &raquo;</a>
+        </article>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <small>Teaching Thinking</small>
+          <h3>Student Cognitive Development</h3>
+          <p>
+            The main lesson site for EDAD-601, focusing on obstacles to higher-order thinking,
+            thinking frameworks, and strategies to improve student thinking. Includes the
+            random student selector and other interactive elements.
+          </p>
+          <a href="teaching-thinking/index.html">Open Student Cognitive Development &raquo;</a>
+        </article>
+      </div>
+
+      <div style="margin-top:16px;">
+        <a href="../index.html">&larr; Back to Home</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. EDAD-601 project materials.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<script src="teaching-thinking/roster.js"></script>
+</body>
+</html>

@@ -1,49 +1,215 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Caesar Cipher</title>
-<link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caesar Cipher – MATH-656 Cryptography</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* Local styling for the cipher UI; move to style.css later if you like */
+    .cipher-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .cipher-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .cipher-row input[type="number"] {
+      width: 80px;
+    }
+
+    .cipher-form label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .cipher-form textarea {
+      width: 100%;
+      min-height: 4.5rem;
+      resize: vertical;
+      padding: 0.5rem 0.6rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .cipher-form input[type="number"] {
+      padding: 0.3rem 0.5rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font-size: 0.95rem;
+    }
+
+    .cipher-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .cipher-buttons button {
+      font-size: 0.9rem;
+    }
+
+    .analysis-output {
+      margin-top: 0.3rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      max-height: 280px;
+      overflow-y: auto;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.88rem;
+      white-space: pre-wrap;
+    }
+
+    .error-message {
+      margin-top: 0.25rem;
+      font-size: 0.85rem;
+      color: #b91c1c;
+      min-height: 1em;
+    }
+  </style>
 </head>
 <body>
 <header>
-<h1>Caesar Cipher</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="caesar.html">Caesar</a>
-<a href="substitution.html">Substitution</a>
-<a href="vigenere.html">Vigenere</a>
-<a href="hill.html">Hill</a>
-</nav>
+  <div class="container site-header">
+    <div class="site-title">MATH-656: Cryptography &amp; Ciphers</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../cv.html">CV</a>
+
+      <div class="nav-dropdown">
+        <button class="nav-dropbtn" type="button">
+          Courses ▾
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="index.html">MATH-656</a>
+          <a href="../EDAD-601/index.html">EDAD-601</a>
+          <a href="../CS3152/index.html">CS3152 Game Design</a>
+        </div>
+      </div>
+
+      <a href="../about.html">About Me</a>
+      <a href="../philosophy.html">Teaching Philosophy</a>
+      <a href="../syllabus.html">Syllabus</a>
+      <a href="../evaluation.html">Teaching Evaluation</a>
+    </nav>
+  </div>
 </header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Classical Cipher Tool</div>
+      <h1 class="hero-title">Caesar Cipher</h1>
+      <p class="hero-subtitle">
+        A simple shift cipher with surprisingly rich structure.
+      </p>
+      <p class="hero-description">
+        Use this page to experiment with the Caesar cipher: encrypt your own messages,
+        generate a random shift, and perform a brute-force search over all 25 possible
+        keys to see how easy it is to break.
+      </p>
+    </div>
+  </div>
+</section>
+
 <main>
-<section class="cipher-container">
-<h2>Encrypt</h2>
-<label for="caesar-encrypt-text">Plaintext:</label>
-<textarea id="caesar-encrypt-text" rows="3"></textarea>
-<label for="caesar-encrypt-shift">Shift (1-25):</label>
-<input id="caesar-encrypt-shift" max="25" min="1" type="number" value="3"/>
-<button id="caesar-random-shift-btn" type="button">Random Shift</button>
-<button id="caesar-encrypt-btn">Encrypt</button>
-<label for="caesar-encrypt-output">Ciphertext:</label>
-<textarea id="caesar-encrypt-output" readonly="" rows="3"></textarea>
-<p class="error-message" id="caesar-encrypt-error"></p>
-</section>
-<section class="cipher-container">
-<h2>Decrypt (Brute-Force Analysis)</h2>
-<label for="caesar-decrypt-text">Ciphertext:</label>
-<textarea id="caesar-decrypt-text" rows="3"></textarea>
-<button id="caesar-decrypt-btn">Decrypt</button>
-<label for="caesar-decrypt-output">Possible Decryptions:</label>
-<div class="analysis-output" id="caesar-decrypt-output"></div>
-<p class="error-message" id="caesar-decrypt-error"></p>
-</section>
+  <section class="section" id="encrypt">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Encrypt</h2>
+        <p>Choose a shift and see how your plaintext is transformed.</p>
+      </div>
+
+      <div class="card">
+        <form class="cipher-form" onsubmit="return false;">
+          <div>
+            <label for="caesar-encrypt-text">Plaintext</label>
+            <textarea id="caesar-encrypt-text" rows="3"
+              placeholder="Enter the message you want to encrypt..."></textarea>
+          </div>
+
+          <div class="cipher-row">
+            <div>
+              <label for="caesar-encrypt-shift">Shift (1–25)</label><br>
+              <input id="caesar-encrypt-shift" type="number" min="1" max="25" value="3" />
+            </div>
+            <div class="cipher-buttons">
+              <button class="btn btn-ghost" id="caesar-random-shift-btn" type="button">
+                Random Shift
+              </button>
+              <button class="btn btn-primary" id="caesar-encrypt-btn" type="button">
+                Encrypt
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label for="caesar-encrypt-output">Ciphertext</label>
+            <textarea id="caesar-encrypt-output" rows="3" readonly
+              placeholder="The encrypted text will appear here..."></textarea>
+          </div>
+
+          <p class="error-message" id="caesar-encrypt-error"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="decrypt">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Decrypt (Brute-Force Analysis)</h2>
+        <p>Try all 25 shifts and look for the one that “looks like English.”</p>
+      </div>
+
+      <div class="card">
+        <form class="cipher-form" onsubmit="return false;">
+          <div>
+            <label for="caesar-decrypt-text">Ciphertext</label>
+            <textarea id="caesar-decrypt-text" rows="3"
+              placeholder="Paste ciphertext here to try all 25 possible shifts..."></textarea>
+          </div>
+
+          <div class="cipher-buttons">
+            <button class="btn btn-primary" id="caesar-decrypt-btn" type="button">
+              Run brute-force
+            </button>
+          </div>
+
+          <div>
+            <label for="caesar-decrypt-output">Possible decryptions</label>
+            <div class="analysis-output" id="caesar-decrypt-output">
+              <!-- Brute-force results will appear here -->
+            </div>
+          </div>
+
+          <p class="error-message" id="caesar-decrypt-error"></p>
+        </form>
+      </div>
+    </div>
+  </section>
 </main>
+
 <footer>
-<p>Cryptographic Cipher Showcase</p>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. Cryptographic Cipher Showcase.</div>
+  </div>
 </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 <script src="js/caesar.js"></script>
 </body>
 </html>

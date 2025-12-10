@@ -1,23 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MATH-645: A Survey of Mathematical Problems</title>
-<link rel="stylesheet" href="../style.css">
-<style>
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-main{max-width:1000px;margin:0 auto;padding:16px}
-h1{margin:8px 0 12px}.card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;padding:16px}
-ul{line-height:1.8}.badge{float:right;padding:2px 8px;border-radius:999px;background:#eef2ff;border:1px solid #c7d2fe;font-size:12px}
-</style></head>
-<body><main>
-<h1>Cryptography & Ciphers <span class="badge">MATH-645</span></h1>
-<div class="card"><p>Implementation and cryptanalysis of classic ciphers (Caesar, Vigenère, Hill, etc.)
-  See this <a href="jiang_14.pdf">paper</a> for details.</p></div>
-<h2>Pages</h2>
-<ul><li><a href="caesar.html">Caesar</a></li>
-<li><a href="hill.html">Hill</a></li>
-<li><a href="landing.html">Landing</a></li>
-<li><a href="substitution.html">Substitution</a></li>
-<li><a href="vigenere.html">Vigenere</a></li></ul>
-<p><a href="../index.html">← Back to Home</a></p>
-</main></body></html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MATH-656: Cryptography &amp; Ciphers</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <div class="container site-header">
+    <div class="site-title">MATH-656: Cryptography &amp; Ciphers</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../cv.html">CV</a>
+
+      <div class="nav-dropdown">
+        <button class="nav-dropbtn" type="button">
+          Courses ▾
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="index.html">MATH-656</a>
+          <a href="../EDAD-601/index.html">EDAD-601</a>
+          <a href="../CS3152/index.html">CS3152 Game Design</a>
+        </div>
+      </div>
+
+      <a href="../about.html">About Me</a>
+      <a href="../philosophy.html">Teaching Philosophy</a>
+      <a href="../syllabus.html">Syllabus</a>
+      <a href="../evaluation.html">Teaching Evaluation</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Course Site</div>
+      <h1 class="hero-title">MATH-656: Cryptography &amp; Ciphers</h1>
+      <p class="hero-subtitle">
+        Implementation and cryptanalysis of classic ciphers.
+      </p>
+      <p class="hero-description">
+        This site hosts interactive demos and notes for classical cryptography:
+        Caesar, Vigenère, Hill, substitution ciphers, and more. Many of the ideas
+        here are drawn from my paper on classical cipher implementation and
+        cryptanalysis.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="jiang_14.pdf">
+          Read the paper &raquo;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <section class="section" id="overview">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Overview</h2>
+        <p>What lives in this MATH-656 space.</p>
+      </div>
+
+      <div class="card">
+        <p>
+          The focus of this course segment is on <strong>classical ciphers</strong>:
+          how they work, how to implement them, and how to break them using
+          frequency analysis and other techniques. The pages below provide
+          implementations, small experiments, and places to play with your own
+          messages.
+        </p>
+        <p class="card-note">
+          These tools are primarily for demonstration and teaching; they are
+          <em>not</em> intended for modern secure communication.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pages">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Pages</h2>
+        <p>Interactive cipher tools and demos.</p>
+      </div>
+
+      <div class="card-grid">
+        <article class="card">
+          <small>Shift Cipher</small>
+          <h3>Caesar</h3>
+          <p>
+            Encrypt and decrypt using the classic Caesar shift. Explore how a
+            simple rotation of the alphabet behaves and why it is easy to break.
+          </p>
+          <a href="caesar.html">Open Caesar tool &raquo;</a>
+        </article>
+
+        <article class="card">
+          <small>Matrix Cipher</small>
+          <h3>Hill</h3>
+          <p>
+            Experiment with the Hill cipher using matrices over modular
+            arithmetic. See how linear algebra over \(\mathbb{Z}_n\) creates
+            polygraphic substitutions.
+          </p>
+          <a href="hill.html">Open Hill cipher tool &raquo;</a>
+        </article>
+
+        <article class="card">
+          <small>Keyword Cipher</small>
+          <h3>Vigenère</h3>
+          <p>
+            Work with the Vigenère cipher, using a keyword to drive repeated
+            shifts. Try both encryption and simple cryptanalysis via frequency
+            patterns.
+          </p>
+          <a href="vigenere.html">Open Vigenère tool &raquo;</a>
+        </article>
+
+        <article class="card">
+          <small>General Monoalphabetic</small>
+          <h3>Substitution</h3>
+          <p>
+            A more general substitution cipher interface with tools for
+            experimenting with arbitrary key mappings and basic frequency
+            analysis.
+          </p>
+          <a href="substitution.html">Open substitution tool &raquo;</a>
+        </article>
+
+        <article class="card">
+          <small>Index / Hub</small>
+          <h3>Landing Page</h3>
+          <p>
+            A consolidated landing page for the cryptography demos and any
+            additional notes or exercises you attach to them.
+          </p>
+          <a href="landing.html">Open landing page &raquo;</a>
+        </article>
+      </div>
+
+      <div style="margin-top:16px;">
+        <a href="../index.html">&larr; Back to Home</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. MATH-656 Cryptography &amp; Ciphers.</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
