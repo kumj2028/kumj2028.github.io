@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amssymb} % Required for math stuff
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tikz} % Required for drawing graphs
+\usepackage{hyperref} % Required for hyperlinks
+
+% Set up TikZ to add padding around pictures
+\tikzset{
+every picture/.style={
+  execute at end picture={
+    \path (current bounding box.south west) +(-0.25,-0.25) 
+    (current bounding box.north east) +(0.25,0.25);
+    }
+  }
+}
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2}]}
+{\end{trivlist}}
+
+\title{Project 3: Block Walking on Pascal's Triangle}
+\author{Mengxiang Jiang}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+Today, I want to explore a topic I learned in high school from
+a math competition book called \textit{The Art of Problem Solving Volume 2}
+by Sandor Lehoczky and Richard Rusczyk \cite{lehoczky2006art}.
+A familiar fact about Pascal's triangle is that its entries
+correspond to the binomial coefficients, namely $\binom{n}{k}$ is the
+entry in the $n$-th row and $k$-th column (starting from 0).
+A related topic concerning Pascal's triangle is called block walking.
+\begin{figure}[ht!]
+    \label{fig:pascal}
+    \centering
+    \begin{tikzpicture}[
+        x=1.5cm, y=1.5cm
+        ]
+        % Nodes
+        \node (00) at ( 0,  0) {$\binom{0}{0}$};
+
+        \node (10) at (-1, -1) {$\binom{1}{0}$};
+        \node (11) at ( 1, -1) {$\binom{1}{1}$};
+
+        \node (20) at (-2, -2) {$\binom{2}{0}$};
+        \node (21) at ( 0, -2) {$\binom{2}{1}$};
+        \node (22) at ( 2, -2) {$\binom{2}{2}$};
+
+        \node (30) at (-3, -3) {$\binom{3}{0}$};
+        \node (31) at (-1, -3) {$\binom{3}{1}$};
+        \node (32) at ( 1, -3) {$\binom{3}{2}$};
+        \node (33) at ( 3, -3) {$\binom{3}{3}$};
+
+        % Edges
+        \draw (00) -- (10);
+        \draw (00) -- (11);
+
+        \draw (10) -- (20);
+        \draw (10) -- (21);
+
+        \draw (11) -- (21);
+        \draw (11) -- (22);
+
+        \draw (20) -- (30);
+        \draw (20) -- (31);
+
+        \draw (21) -- (31);
+        \draw (21) -- (32);
+
+        \draw (22) -- (32);
+        \draw (22) -- (33);
+    \end{tikzpicture}
+    \caption{The first few rows of Pascal's triangle}
+\end{figure}
+Imagine you are starting at the top of the triangle 
+(see Figure \ref{fig:pascal}).
+At each step, you can either move down to the left or down to the right.
+For example, to get to the entry $\binom{3}{1}$, you can take the following paths:
+\begin{itemize}
+    \item Down left, down right, down left
+    \item Down right, down left, down left
+    \item Down left, down left, down right
+\end{itemize}
+In total, there are 3 different paths to get to $\binom{3}{1}$.
+More generally, to get to the entry $\binom{n}{k}$, you need to take
+$k$ steps down to the right and $n-k$ steps down to the left.
+Thus, the total number of steps is $n$, and you just need to choose
+which $k$ of those $n$ steps are down to the right. Therefore
+this important equation holds:
+\begin{equation}
+    \label{eq1}
+    \text{Number of paths to } \binom{n}{k} = \binom{n}{k}.
+\end{equation}
+We will now use this block walking idea to prove
+a nice combinatorial theorem.
+
+\section{Application of Block Walking}
+\begin{theorem}{(Sum of Squares of Binomial Coefficients Identity)}
+    \[
+        \sum_{k=0}^{n} \binom{n}{k}^2 = \binom{2n}{n}.
+    \]
+\end{theorem}
+\begin{proof}
+    Consider a block walking scenario where you start at the top of
+    Pascal's triangle and want to get to the entry $\binom{2n}{n}$.
+    To get there, we simply apply equation \ref{eq1} to get that
+    the total number of different paths to reach $\binom{2n}{n}$
+    is $\binom{2n}{n}$.
+    \\\\
+    Now, let's consider an alternative way to count the number of
+    paths to get to $\binom{2n}{n}$. We can break the journey into
+    two parts: first, we walk down to the $n$-th row of Pascal's triangle,
+    and then we walk from there down to $\binom{2n}{n}$.
+    When we reach the $n$-th row, we could be at any entry $\binom{n}{k}$
+    for $k=0,1,2,\ldots,n$. The number of different paths to get
+    to $\binom{n}{k}$ is given by $\binom{n}{k}$ using equation \ref{eq1}.
+    From $\binom{n}{k}$, we need to take another $n$ steps to reach
+    $\binom{2n}{n}$. In this second part of the journey, we need
+    to take $(n-k)$ steps down to the right and $k$ steps down to the left.
+    The number of different paths from $\binom{n}{k}$ to $\binom{2n}{n}$
+    is given by $\binom{n}{n - k}$. However, this is also equal to
+    $\binom{n}{k}$ as shown below:
+    \[
+        \binom{n}{n - k} = \frac{n!}{(n - k)!(n - (n - k))!} = 
+        \frac{n!}{(n - k)!k!} = \frac{n!}{k!(n - k)!} = \binom{n}{k}.
+    \]
+    Therefore, for each entry $\binom{n}{k}$ in the $n$-th row,
+    the total number of paths from the top of the triangle
+    to $\binom{2n}{n}$ that pass through $\binom{n}{k}$
+    is given by $\binom{n}{k} \cdot \binom{n}{k} = \binom{n}{k}^2$.
+    To get the total number of paths to $\binom{2n}{n}$,
+    we need to sum this quantity over all possible values of $k$:
+    \[
+        \sum_{k=0}^{n} \binom{n}{k}^2.
+    \]
+    Since both counting methods count the same number of paths,
+    we have
+    \[
+        \sum_{k=0}^{n} \binom{n}{k}^2 = \binom{2n}{n},
+    \]
+    which completes the proof.
+\end{proof}
+
+\section{Conclusion}
+The theorem we proved isn't particularly useful on its own although it
+is aesthetically pleasing in its symmetry. However, a much more 
+general version of this theorem is called Vandermonde's identity.
+\begin{theorem}{(Vandermonde's Identity)}
+\[
+    \sum_{k=0}^{r} \binom{m}{k} \binom{n}{r-k} = \binom{m+n}{r}.
+\]
+\end{theorem}
+This identity has many applications in a huge variety of fields, and
+it can also be proved using the block walking idea we discussed today,
+which I encourage you to try on your own!
+
+\begin{section}{Bibliography}
+    \bibliographystyle{plain}
+    \bibliography{refs}
+\end{section}
+
+\end{document}

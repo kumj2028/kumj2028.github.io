@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Project 3: Block Walking on Pascal’s Triangle</title>
+<!--Generated on Wed Dec 17 14:49:56 2025 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on December 17, 2025.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="mod.css" type="text/css">
+    <nav>
+      <a href="../index.html">Home</a>
+    </nav>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">Project 3: Block Walking on Pascal’s Triangle</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Mengxiang Jiang
+</span></span>
+</div>
+<div class="ltx_dates">(December 17, 2025)</div>
+
+<section id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1 </span>Introduction</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">Today, I want to explore a topic I learned in high school from
+a math competition book called <span class="ltx_text ltx_font_italic">The Art of Problem Solving Volume 2</span>
+by Sandor Lehoczky and Richard Rusczyk <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib1" title="The art of problem solving volume 2: and beyond" class="ltx_ref">1</a>]</cite>.
+A familiar fact about Pascal’s triangle is that its entries
+correspond to the binomial coefficients, namely <math id="S1.p1.m1" class="ltx_Math" alttext="\binom{n}{k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></math> is the
+entry in the <math id="S1.p1.m2" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-th row and <math id="S1.p1.m3" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math>-th column (starting from 0).
+A related topic concerning Pascal’s triangle is called block walking.</p>
+</div>
+<figure id="S1.F1" class="ltx_figure"><svg id="S1.F1.pic1" class="ltx_picture ltx_centering" height="229.75" overflow="visible" version="1.1" width="408.69"><g transform="translate(0,229.75) matrix(1 0 0 -1 0 0) translate(204.34,0) translate(0,203.46)" fill="#000000" stroke="#000000" stroke-width="0.4pt"><g transform="matrix(1.0 0.0 0.0 1.0 -7.8 -3.46)" fill="#000000" stroke="#000000"><foreignObject width="15.61" height="13.84" transform="matrix(1 0 0 -1 0 16.6)" overflow="visible"><math id="S1.F1.pic1.m1" class="ltx_Math" alttext="\binom{0}{0}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>0</mn><mn>0</mn></mfrac><mo>)</mo></mrow></math></foreignObject></g><g transform="matrix(1.0 0.0 0.0 1.0 -66.86 -62.51)" fill="#000000" stroke="#000000"><foreignObject width="15.61" height="13.84" transform="matrix(1 0 0 -1 0 16.6)" overflow="visible"><math id="S1.F1.pic1.m2" class="ltx_Math" alttext="\binom{1}{0}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>1</mn><mn>0</mn></mfrac><mo>)</mo></mrow></math></foreignObject></g><g transform="matrix(1.0 0.0 0.0 1.0 51.25 -62.51)" fill="#000000" stroke="#000000"><foreignObject width="15.61" height="13.84" transform="matrix(1 0 0 -1 0 16.6)" overflow="visible"><math id="S1.F1.pic1.m3" class="ltx_Math" alttext="\binom{1}{1}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>1</mn><mn>1</mn></mfrac><mo>)</mo></mrow></math></foreignObject></g><g transform="matrix(1.0 0.0 0.0 1.0 -125.91 -121.57)" fill="#000000" stroke="#000000"><foreignObject width="15.61" height="13.84" transform="matrix(1 0 0 -1 0 16.6)" overflow="visible"><math id="S1.F1.pic1.m4" class="ltx_Math" alttext="\binom{2}{0}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>2</mn><mn>0</mn></mfrac><mo>)</mo></mrow></math></foreignObject></g><g transform="matrix(1.0 0.0 0.0 1.0 -7.8 -121.57)" fill="#000000" stroke="#000000"><foreignObject width="15.61" height="13.84" transform="matrix(1 0 0 -1 0 16.6)" overflow="visible"><math id="S1.F1.pic1.m5" class="ltx_Math" alttext="\binom{2}{1}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>2</mn><mn>1</mn></mfrac><mo>)</mo></mrow></math></foreignObject></g><g transform="matrix(1.0 0.0 0.0 1.0 110.31 -121.57)" fill="#000000" stroke="#000000"><foreignObject width="15.61" height="13.84" transform="matrix(1 0 0 -1 0 16.6)" overflow="visible"><math id="S1.F1.pic1.m6" class="ltx_Math" alttext="\binom{2}{2}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>2</mn><mn>2</mn></mfrac><mo>)</mo></mrow></math></foreignObject></g><g transform="matrix(1.0 0.0 0.0 1.0 -184.97 -180.62)" fill="#000000" stroke="#000000"><foreignObject width="15.61" height="13.84" transform="matrix(1 0 0 -1 0 16.6)" overflow="visible"><math id="S1.F1.pic1.m7" class="ltx_Math" alttext="\binom{3}{0}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>3</mn><mn>0</mn></mfrac><mo>)</mo></mrow></math></foreignObject></g><g transform="matrix(1.0 0.0 0.0 1.0 -66.86 -180.62)" fill="#000000" stroke="#000000"><foreignObject width="15.61" height="13.84" transform="matrix(1 0 0 -1 0 16.6)" overflow="visible"><math id="S1.F1.pic1.m8" class="ltx_Math" alttext="\binom{3}{1}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>3</mn><mn>1</mn></mfrac><mo>)</mo></mrow></math></foreignObject></g><g transform="matrix(1.0 0.0 0.0 1.0 51.25 -180.62)" fill="#000000" stroke="#000000"><foreignObject width="15.61" height="13.84" transform="matrix(1 0 0 -1 0 16.6)" overflow="visible"><math id="S1.F1.pic1.m9" class="ltx_Math" alttext="\binom{3}{2}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>3</mn><mn>2</mn></mfrac><mo>)</mo></mrow></math></foreignObject></g><g transform="matrix(1.0 0.0 0.0 1.0 169.36 -180.62)" fill="#000000" stroke="#000000"><foreignObject width="15.61" height="13.84" transform="matrix(1 0 0 -1 0 16.6)" overflow="visible"><math id="S1.F1.pic1.m10" class="ltx_Math" alttext="\binom{3}{3}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>3</mn><mn>3</mn></mfrac><mo>)</mo></mrow></math></foreignObject></g><path d="M -11.81 -11.81 L -47.25 -47.25" style="fill:none"></path><path d="M 11.81 -11.81 L 47.25 -47.25" style="fill:none"></path><path d="M -70.86 -70.86 L -106.31 -106.3" style="fill:none"></path><path d="M -47.25 -70.86 L -11.8 -106.3" style="fill:none"></path><path d="M 47.25 -70.86 L 11.8 -106.3" style="fill:none"></path><path d="M 70.86 -70.86 L 106.31 -106.3" style="fill:none"></path><path d="M -129.92 -129.92 L -165.36 -165.36" style="fill:none"></path><path d="M -106.3 -129.92 L -70.86 -165.36" style="fill:none"></path><path d="M -11.81 -129.92 L -47.25 -165.36" style="fill:none"></path><path d="M 11.81 -129.92 L 47.25 -165.36" style="fill:none"></path><path d="M 106.3 -129.92 L 70.86 -165.36" style="fill:none"></path><path d="M 129.92 -129.92 L 165.36 -165.36" style="fill:none"></path></g></svg>
+<figcaption class="ltx_caption ltx_centering"><span class="ltx_tag ltx_tag_figure">Figure 1: </span>The first few rows of Pascal’s triangle</figcaption>
+</figure>
+<div id="S1.p2" class="ltx_para">
+<p class="ltx_p">Imagine you are starting at the top of the triangle
+(see Figure <a href="#S1.F1" title="Figure 1 ‣ 1 Introduction ‣ Project 3: Block Walking on Pascal’s Triangle" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a>).
+At each step, you can either move down to the left or down to the right.
+For example, to get to the entry <math id="S1.p2.m1" class="ltx_Math" alttext="\binom{3}{1}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>3</mn><mn>1</mn></mfrac><mo>)</mo></mrow></math>, you can take the following paths:</p>
+<ul id="S1.I1" class="ltx_itemize">
+<li id="S1.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S1.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">Down left, down right, down left</p>
+</div>
+</li>
+<li id="S1.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S1.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">Down right, down left, down left</p>
+</div>
+</li>
+<li id="S1.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S1.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">Down left, down left, down right</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">In total, there are 3 different paths to get to <math id="S1.p2.m2" class="ltx_Math" alttext="\binom{3}{1}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mn>3</mn><mn>1</mn></mfrac><mo>)</mo></mrow></math>.
+More generally, to get to the entry <math id="S1.p2.m3" class="ltx_Math" alttext="\binom{n}{k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></math>, you need to take
+<math id="S1.p2.m4" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math> steps down to the right and <math id="S1.p2.m5" class="ltx_Math" alttext="n-k" display="inline"><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow></math> steps down to the left.
+Thus, the total number of steps is <math id="S1.p2.m6" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>, and you just need to choose
+which <math id="S1.p2.m7" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math> of those <math id="S1.p2.m8" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> steps are down to the right. Therefore
+this important equation holds:</p>
+<table id="S1.E1" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S1.E1.m1" class="ltx_Math" alttext="\text{Number of paths to }\binom{n}{k}=\binom{n}{k}." display="block"><mrow><mrow><mrow><mtext>Number of paths to </mtext><mo>⁢</mo><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+<td rowspan="1" class="ltx_eqn_cell ltx_eqn_eqno ltx_align_middle ltx_align_right"><span class="ltx_tag ltx_tag_equation ltx_align_right">(1)</span></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">We will now use this block walking idea to prove
+a nice combinatorial theorem.</p>
+</div>
+</section>
+<section id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2 </span>Application of Block Walking</h2>
+
+<div id="S2.p1" class="ltx_para">
+<ul class="ltx_itemize">
+<li class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">Theorem(Sum of Squares of Binomial Coefficients Identity)</span> 
+<div id="S2.p1.p1" class="ltx_para">
+<table id="S2.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex1.m1" class="ltx_Math" alttext="\sum_{k=0}^{n}\binom{n}{k}^{2}=\binom{2n}{n}." display="block"><mrow><mrow><mrow><munderover><mo movablelimits="false">∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><msup><mrow><mo lspace="0em">(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Proof.</h6>
+<div id="S2.p2" class="ltx_para">
+<p class="ltx_p">Consider a block walking scenario where you start at the top of
+Pascal’s triangle and want to get to the entry <math id="S2.p2.m1" class="ltx_Math" alttext="\binom{2n}{n}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></math>.
+To get there, we simply apply equation <a href="#S1.E1" title="In 1 Introduction ‣ Project 3: Block Walking on Pascal’s Triangle" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a> to get that
+the total number of different paths to reach <math id="S2.p2.m2" class="ltx_Math" alttext="\binom{2n}{n}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></math>
+is <math id="S2.p2.m3" class="ltx_Math" alttext="\binom{2n}{n}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></math>.
+
+<br class="ltx_break">
+<br class="ltx_break">Now, let’s consider an alternative way to count the number of
+paths to get to <math id="S2.p2.m4" class="ltx_Math" alttext="\binom{2n}{n}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></math>. We can break the journey into
+two parts: first, we walk down to the <math id="S2.p2.m5" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-th row of Pascal’s triangle,
+and then we walk from there down to <math id="S2.p2.m6" class="ltx_Math" alttext="\binom{2n}{n}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></math>.
+When we reach the <math id="S2.p2.m7" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-th row, we could be at any entry <math id="S2.p2.m8" class="ltx_Math" alttext="\binom{n}{k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></math>
+for <math id="S2.p2.m9" class="ltx_Math" alttext="k=0,1,2,\ldots,n" display="inline"><mrow><mi>k</mi><mo>=</mo><mrow><mn>0</mn><mo>,</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo>,</mo><mi mathvariant="normal">…</mi><mo>,</mo><mi>n</mi></mrow></mrow></math>. The number of different paths to get
+to <math id="S2.p2.m10" class="ltx_Math" alttext="\binom{n}{k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></math> is given by <math id="S2.p2.m11" class="ltx_Math" alttext="\binom{n}{k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></math> using equation <a href="#S1.E1" title="In 1 Introduction ‣ Project 3: Block Walking on Pascal’s Triangle" class="ltx_ref"><span class="ltx_text ltx_ref_tag">1</span></a>.
+From <math id="S2.p2.m12" class="ltx_Math" alttext="\binom{n}{k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></math>, we need to take another <math id="S2.p2.m13" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> steps to reach
+<math id="S2.p2.m14" class="ltx_Math" alttext="\binom{2n}{n}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></math>. In this second part of the journey, we need
+to take <math id="S2.p2.m15" class="ltx_Math" alttext="(n-k)" display="inline"><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow><mo stretchy="false">)</mo></mrow></math> steps down to the right and <math id="S2.p2.m16" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math> steps down to the left.
+The number of different paths from <math id="S2.p2.m17" class="ltx_Math" alttext="\binom{n}{k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></math> to <math id="S2.p2.m18" class="ltx_Math" alttext="\binom{2n}{n}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></math>
+is given by <math id="S2.p2.m19" class="ltx_Math" alttext="\binom{n}{n-k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow></mfrac><mo>)</mo></mrow></math>. However, this is also equal to
+<math id="S2.p2.m20" class="ltx_Math" alttext="\binom{n}{k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></math> as shown below:</p>
+<table id="S2.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex2.m1" class="ltx_Math" alttext="\binom{n}{n-k}=\frac{n!}{(n-k)!(n-(n-k))!}=\frac{n!}{(n-k)!k!}=\frac{n!}{k!(n-%
+k)!}=\binom{n}{k}." display="block"><mrow><mrow><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow></mfrac><mo>)</mo></mrow><mo>=</mo><mfrac><mrow><mi>n</mi><mo>!</mo></mrow><mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow><mo stretchy="false">)</mo></mrow><mo>!</mo></mrow><mo>⁢</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>−</mo><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>!</mo></mrow></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>n</mi><mo>!</mo></mrow><mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow><mo stretchy="false">)</mo></mrow><mo>!</mo></mrow><mo>⁢</mo><mrow><mi>k</mi><mo>!</mo></mrow></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>n</mi><mo>!</mo></mrow><mrow><mrow><mi>k</mi><mo>!</mo></mrow><mo>⁢</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>−</mo><mi>k</mi></mrow><mo stretchy="false">)</mo></mrow><mo>!</mo></mrow></mrow></mfrac><mo>=</mo><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Therefore, for each entry <math id="S2.p2.m21" class="ltx_Math" alttext="\binom{n}{k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></math> in the <math id="S2.p2.m22" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math>-th row,
+the total number of paths from the top of the triangle
+to <math id="S2.p2.m23" class="ltx_Math" alttext="\binom{2n}{n}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></math> that pass through <math id="S2.p2.m24" class="ltx_Math" alttext="\binom{n}{k}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></math>
+is given by <math id="S2.p2.m25" class="ltx_Math" alttext="\binom{n}{k}\cdot\binom{n}{k}=\binom{n}{k}^{2}" display="inline"><mrow><mrow><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo rspace="0.055em">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow></mrow><mo>=</mo><msup><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow></math>.
+To get the total number of paths to <math id="S2.p2.m26" class="ltx_Math" alttext="\binom{2n}{n}" display="inline"><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></math>,
+we need to sum this quantity over all possible values of <math id="S2.p2.m27" class="ltx_Math" alttext="k" display="inline"><mi>k</mi></math>:</p>
+<table id="S2.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex3.m1" class="ltx_Math" alttext="\sum_{k=0}^{n}\binom{n}{k}^{2}." display="block"><mrow><mrow><munderover><mo movablelimits="false">∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><msup><mrow><mo lspace="0em">(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Since both counting methods count the same number of paths,
+we have</p>
+<table id="S2.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex4.m1" class="ltx_Math" alttext="\sum_{k=0}^{n}\binom{n}{k}^{2}=\binom{2n}{n}," display="block"><mrow><mrow><mrow><munderover><mo movablelimits="false">∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>n</mi></munderover><msup><mrow><mo lspace="0em">(</mo><mfrac linethickness="0pt"><mi>n</mi><mi>k</mi></mfrac><mo>)</mo></mrow><mn>2</mn></msup></mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mn>2</mn><mo>⁢</mo><mi>n</mi></mrow><mi>n</mi></mfrac><mo>)</mo></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">which completes the proof.
+∎</p>
+</div>
+</div>
+</section>
+<section id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3 </span>Conclusion</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">The theorem we proved isn’t particularly useful on its own although it
+is aesthetically pleasing in its symmetry. However, a much more
+general version of this theorem is called Vandermonde’s identity.</p>
+<ul class="ltx_itemize">
+<li class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">Theorem(Vandermonde’s Identity)</span> 
+<div id="S3.p1.p1" class="ltx_para">
+<table id="S3.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex5.m1" class="ltx_Math" alttext="\sum_{k=0}^{r}\binom{m}{k}\binom{n}{r-k}=\binom{m+n}{r}." display="block"><mrow><mrow><mrow><munderover><mo movablelimits="false">∑</mo><mrow><mi>k</mi><mo>=</mo><mn>0</mn></mrow><mi>r</mi></munderover><mrow><mrow><mo lspace="0em">(</mo><mfrac linethickness="0pt"><mi>m</mi><mi>k</mi></mfrac><mo>)</mo></mrow><mo>⁢</mo><mrow><mo>(</mo><mfrac linethickness="0pt"><mi>n</mi><mrow><mi>r</mi><mo>−</mo><mi>k</mi></mrow></mfrac><mo>)</mo></mrow></mrow></mrow><mo>=</mo><mrow><mo>(</mo><mfrac linethickness="0pt"><mrow><mi>m</mi><mo>+</mo><mi>n</mi></mrow><mi>r</mi></mfrac><mo>)</mo></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+</div>
+</li>
+</ul>
+<p class="ltx_p">This identity has many applications in a huge variety of fields, and
+it can also be proved using the block walking idea we discussed today,
+which I encourage you to try on your own!</p>
+</div>
+</section>
+<section id="S4" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">4 </span>Bibliography</h2>
+
+</section>
+<section id="bib" class="ltx_bibliography">
+<h2 class="ltx_title ltx_title_bibliography">References</h2>
+
+<ul id="bib.L1" class="ltx_biblist">
+<li id="bib.bib1" class="ltx_bibitem ltx_bib_book">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[1]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">S. Lehoczky and R. Rusczyk</span><span class="ltx_text ltx_bib_year"> (2006)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">The art of problem solving volume 2: and beyond</span>.
+</span>
+<span class="ltx_bibblock"> <span class="ltx_text ltx_bib_publisher">AoPS</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p1" title="1 Introduction ‣ Project 3: Block Walking on Pascal’s Triangle" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>.
+</span>
+</li>
+</ul>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Wed Dec 17 14:49:56 2025 by <a href="http://dlmf.nist.gov/LaTeXML/" class="ltx_LaTeXML_logo"><span style="letter-spacing:-0.2em; margin-right:0.1em;">L<span class="ltx_font_smallcaps" style="position:relative; bottom:2.2pt;">a</span>T<span class="ltx_font_smallcaps" style="font-size:120%;position:relative; bottom:-0.2ex;">e</span></span><span style="font-size:90%; position:relative; bottom:-0.2ex;">XML</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="Mascot Sammy"></a>
+</div></footer>
+</div>
+</body>
+</html>

@@ -1,60 +1,299 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Hill Cipher (2x2)</title>
-<link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hill Cipher (2x2)</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* Local styling for the cipher UI; move to style.css if you like */
+    .cipher-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .cipher-form label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .cipher-form textarea {
+      width: 100%;
+      min-height: 4.5rem;
+      resize: vertical;
+      padding: 0.5rem 0.6rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .cipher-form input[type="text"] {
+      width: 100%;
+      max-width: 260px;
+      padding: 0.35rem 0.6rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cipher-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .cipher-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .cipher-buttons button {
+      font-size: 0.9rem;
+    }
+
+    .analysis-output {
+      margin-top: 0.3rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 0.88rem;
+      white-space: pre-wrap;
+      min-height: 2.2rem;
+    }
+
+    .error-message {
+      margin-top: 0.25rem;
+      font-size: 0.85rem;
+      color: #b91c1c;
+      min-height: 1em;
+    }
+
+    .hint-text {
+      font-size: 0.85rem;
+      color: #4b5563;
+      margin-top: 0.2rem;
+    }
+  </style>
 </head>
 <body>
 <header>
-<h1>Hill Cipher (2x2)</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="caesar.html">Caesar</a>
-<a href="substitution.html">Substitution</a>
-<a href="vigenere.html">Vigenere</a>
-<a href="hill.html">Hill</a>
-</nav>
+  <div class="container site-header">
+    <div class="site-title">MATH-645: A Survey of Mathematical Problems</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../cv.html">CV</a>
+
+      <div class="nav-dropdown">
+        <button class="nav-dropbtn" type="button">
+          Courses ▾
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="../MATH-696/index.html">MATH-696</a>
+          <a href="index.html">MATH-645</a>
+          <a href="../EDAD-601/index.html">EDAD-601</a>
+          <a href="../CS3152/index.html">CS3152 Game Design</a>
+        </div>
+      </div>
+
+      <a href="../about.html">About Me</a>
+      <a href="../philosophy.html">Teaching Philosophy</a>
+      <a href="../syllabus.html">Syllabus</a>
+      <a href="../evaluation.html">Teaching Evaluation</a>
+    </nav>
+  </div>
 </header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Classical Cipher Tool</div>
+      <h1 class="hero-title">Hill Cipher (2×2)</h1>
+      <p class="hero-subtitle">
+        A matrix-based cipher using linear algebra over \(\mathbb{Z}_{26}\).
+      </p>
+      <p class="hero-description">
+        Use this page to encrypt with a 2×2 Hill cipher and explore a known-plaintext
+        attack. See how short blocks of text become vectors, how keys become matrices,
+        and how solving for the key reveals the underlying structure.
+      </p>
+    </div>
+  </div>
+</section>
+
 <main>
-<section class="cipher-container">
-<h2>Encrypt</h2>
-<label for="hill-encrypt-text">Plaintext:</label>
-<textarea id="hill-encrypt-text" rows="3"></textarea>
-<label for="hill-encrypt-key">Key (4 letters for 2x2 matrix):</label>
-<input id="hill-encrypt-key" maxlength="4" placeholder="e.g., FAST" type="text"/>
-<button id="hill-encrypt-btn">Encrypt</button>
-<label for="hill-encrypt-output">Ciphertext:</label>
-<textarea id="hill-encrypt-output" readonly="" rows="3"></textarea>
-<p class="error-message" id="hill-encrypt-error"></p>
-</section>
-<section class="cipher-container">
-<h2>Decrypt (Known-Plaintext Attack)</h2>
-<p>To break the Hill cipher (2x2), provide at least 4 characters of known plaintext and their corresponding ciphertext.</p>
-<label for="hill-known-plain">Known Plaintext (at least 4 letters):</label>
-<input id="hill-known-plain" placeholder="e.g., help" type="text"/>
-<label for="hill-known-cipher">Corresponding Ciphertext (at least 4 letters):</label>
-<input id="hill-known-cipher" placeholder="e.g., FSQK" type="text"/>
-<button id="hill-find-key-btn">Find Key Matrix</button>
-<label>Derived Key Matrix:</label>
-<div class="analysis-output" id="hill-derived-key-output"></div>
-<p class="error-message" id="hill-find-key-error"></p>
-<hr/>
-<label for="hill-decrypt-text">Full Ciphertext to Decrypt:</label>
-<textarea id="hill-decrypt-text" rows="4"></textarea>
-<label for="hill-decrypt-key-input">Using Key (4 letters):</label>
-<input id="hill-decrypt-key-input" maxlength="4" type="text"/>
-<button id="hill-decrypt-btn">Decrypt with Derived Key</button>
-<label for="hill-decrypt-final-output">Decrypted Text:</label>
-<textarea id="hill-decrypt-final-output" readonly="" rows="4"></textarea>
-<p class="error-message" id="hill-decrypt-error"></p>
-</section>
+  <!-- Encrypt -->
+  <section class="section" id="encrypt">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Encrypt</h2>
+        <p>Turn plaintext into ciphertext using a 2×2 key matrix.</p>
+      </div>
+
+      <div class="card">
+        <form class="cipher-form" onsubmit="return false;">
+          <div>
+            <label for="hill-encrypt-text">Plaintext</label>
+            <textarea id="hill-encrypt-text" rows="3"
+              placeholder="Enter the message you want to encrypt... (letters only are used for the Hill cipher)">
+            </textarea>
+            <p class="hint-text">
+              Non-letter characters are typically ignored or stripped before the Hill cipher is applied.
+            </p>
+          </div>
+
+          <div>
+            <label for="hill-encrypt-key">Key (4 letters for 2×2 matrix)</label>
+            <input
+              id="hill-encrypt-key"
+              type="text"
+              maxlength="4"
+              placeholder="e.g., FAST"
+            />
+            <p class="hint-text">
+              The four letters form a 2×2 matrix by rows
+            </p>
+          </div>
+
+          <div class="cipher-buttons">
+            <button class="btn btn-primary" id="hill-encrypt-btn" type="button">
+              Encrypt
+            </button>
+          </div>
+
+          <div>
+            <label for="hill-encrypt-output">Ciphertext</label>
+            <textarea
+              id="hill-encrypt-output"
+              rows="3"
+              readonly
+              placeholder="The encrypted text will appear here..."
+            ></textarea>
+          </div>
+
+          <p class="error-message" id="hill-encrypt-error"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Known-plaintext attack & decryption -->
+  <section class="section" id="decrypt">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Decrypt (Known-Plaintext Attack)</h2>
+        <p>
+          Recover a 2×2 key matrix from a short known plaintext–ciphertext pair,
+          then use it to decrypt a longer message.
+        </p>
+      </div>
+
+      <div class="card">
+        <form class="cipher-form" onsubmit="return false;">
+          <p>
+            To break the Hill cipher (2×2), you need at least two plaintext blocks
+            (4 letters) and their corresponding ciphertext blocks. This gives you
+            enough equations to solve for the key matrix.
+          </p>
+
+          <div>
+            <label for="hill-known-plain">Known plaintext (at least 4 letters)</label>
+            <input
+              id="hill-known-plain"
+              type="text"
+              placeholder="e.g., HELP"
+            />
+          </div>
+
+          <div>
+            <label for="hill-known-cipher">Corresponding ciphertext (at least 4 letters)</label>
+            <input
+              id="hill-known-cipher"
+              type="text"
+              placeholder="e.g., FSQK"
+            />
+          </div>
+
+          <div class="cipher-buttons">
+            <button class="btn btn-primary" id="hill-find-key-btn" type="button">
+              Find key matrix
+            </button>
+          </div>
+
+          <div>
+            <label>Derived key matrix</label>
+            <div class="analysis-output" id="hill-derived-key-output">
+              <!-- Key matrix and numeric form will appear here -->
+            </div>
+          </div>
+
+          <p class="error-message" id="hill-find-key-error"></p>
+
+          <hr style="margin:1.25rem 0; border:none; border-top:1px solid #e5e7eb;" />
+
+          <div>
+            <label for="hill-decrypt-text">Full ciphertext to decrypt</label>
+            <textarea
+              id="hill-decrypt-text"
+              rows="4"
+              placeholder="Paste the ciphertext you want to decrypt using the derived (or known) key..."
+            ></textarea>
+          </div>
+
+          <div>
+            <label for="hill-decrypt-key-input">Using key (4 letters)</label>
+            <input
+              id="hill-decrypt-key-input"
+              type="text"
+              maxlength="4"
+              placeholder="e.g., FAST"
+            />
+            <p class="hint-text">
+              You can paste the key recovered above or try a different plausible key.
+            </p>
+          </div>
+
+          <div class="cipher-buttons">
+            <button class="btn btn-primary" id="hill-decrypt-btn" type="button">
+              Decrypt with key
+            </button>
+          </div>
+
+          <div>
+            <label for="hill-decrypt-final-output">Decrypted text</label>
+            <textarea
+              id="hill-decrypt-final-output"
+              rows="4"
+              readonly
+              placeholder="The decrypted message will appear here..."
+            ></textarea>
+          </div>
+
+          <p class="error-message" id="hill-decrypt-error"></p>
+        </form>
+      </div>
+    </div>
+  </section>
 </main>
+
 <footer>
-<p>Cryptographic Cipher Showcase</p>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. Cryptographic Cipher Showcase.</div>
+  </div>
 </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 <script src="js/hill.js"></script>
 </body>
 </html>

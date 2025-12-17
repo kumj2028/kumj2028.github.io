@@ -1,0 +1,34 @@
+/* This is a modifications file for LaTeXML's CSS.
+   It is intended to override or add to the default CSS styles used by LaTeXML.
+   You can include this file in your LaTeXML conversion using the
+   --css=mod.css option.
+*/
+/* This changes the list item style to be similar to a card style */
+.ltx_itemize {
+  background: #f0deea;
+  border: 0.2rem solid #773030;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem #2e2d2d;
+}
+/* This changes the equation group style to be similar to a card style */
+.ltx_equationgroup {
+  background: #f1f0f0;
+  border: 0.2rem solid #307773;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem #2e2d2d;
+  display: block;
+}
+/* This changes section style */
+.ltx_section {
+  background: #f1eed8;
+  border: 0.2rem solid #1a039c;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem #2e2d2d;
+  padding: 0.5rem;
+}
+
+/* This changes the style of math text */
+.ltx_Math {
+  color: #0f6404;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}

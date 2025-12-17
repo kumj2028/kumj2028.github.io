@@ -1,0 +1,531 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>LaTeXML Proof Example</title>
+<!--Generated on Wed Nov 26 12:20:41 2025 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on November 26, 2025.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="mod.css" type="text/css">
+    <nav>
+      <a href="../index.html">Home</a>
+    </nav>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">LaTeXML Proof Example</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Mengxiang Jiang
+</span></span>
+</div>
+<div class="ltx_dates">(November 26, 2025)</div>
+
+<section id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1 </span>Introduction</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">There’s an often told story of Hippasus, a mathematician during
+Pythagoras’s time, that found out that the length of the diagonal of
+a square was not commensurate with the length of its side. He was
+apparently drowned for this discovery by the Pythagoreans. At some
+level, I can sympathize with the Pythagoreans, since this proof
+is deeply unsettling when I first read it. Like, rational numbers
+can be made as small and accurate as you want, what do you mean
+there’s something it can’t perfectly describe? And even after
+learning real analysis, the way <math id="S1.p1.m1" class="ltx_Math" alttext="\sqrt{2}" display="inline"><msqrt><mn>2</mn></msqrt></math> is actually described
+(whether it’s a Dedekind cut, equivalence class of Cauchy
+sequences, or something else) leaves much to be desired.
+I much prefer the algebraic treatment of <math id="S1.p1.m2" class="ltx_Math" alttext="\sqrt{2}" display="inline"><msqrt><mn>2</mn></msqrt></math> instead,
+where just like <math id="S1.p1.m3" class="ltx_Math" alttext="i" display="inline"><mi>i</mi></math>, we just claim it’s not a part of the rationals
+and adjoin it, without making any claims about what it really is.
+So my proof won’t say that <math id="S1.p1.m4" class="ltx_Math" alttext="\sqrt{2}" display="inline"><msqrt><mn>2</mn></msqrt></math> is irrational, but rather
+that the rational numbers do not have such a number.</p>
+</div>
+</section>
+<section id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2 </span>The Proof</h2>
+
+<div id="S2.Thmtheorem1" class="ltx_theorem ltx_theorem_theorem">
+<h6 class="ltx_title ltx_runin ltx_title_theorem">
+<span class="ltx_tag ltx_tag_theorem"><span class="ltx_text ltx_font_bold">Theorem 2.1</span></span><span class="ltx_text ltx_font_bold">.</span>
+</h6>
+<div id="S2.Thmtheorem1.p1" class="ltx_para">
+<table id="S2.Ex1" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex1.m1" class="ltx_Math" alttext="\forall q\in\mathbb{Q},q^{2}\neq 2." display="block"><mrow><mrow><mrow><mrow><mo rspace="0.167em">∀</mo><mi>q</mi></mrow><mo>∈</mo><mi>ℚ</mi></mrow><mo>,</mo><mrow><msup><mi>q</mi><mn>2</mn></msup><mo>≠</mo><mn>2</mn></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+</div>
+</div>
+<div class="ltx_proof">
+<h6 class="ltx_title ltx_runin ltx_font_italic ltx_title_proof">Proof.</h6>
+<div id="S2.p1" class="ltx_para">
+<p class="ltx_p">Assume for contradiction that there does exist a number <math id="S2.p1.m1" class="ltx_Math" alttext="q" display="inline"><mi>q</mi></math> in the rationals whose
+square is 2. We use the property that all rational numbers can be written in the
+most reduced form (proof of this property left to the reader) to write</p>
+<table id="S2.Ex2" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex2.m1" class="ltx_Math" alttext="q=\frac{a}{b}," display="block"><mrow><mrow><mi>q</mi><mo>=</mo><mfrac><mi>a</mi><mi>b</mi></mfrac></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">where <math id="S2.p1.m2" class="ltx_Math" alttext="a,b\in\mathbb{Z}" display="inline"><mrow><mrow><mi>a</mi><mo>,</mo><mi>b</mi></mrow><mo>∈</mo><mi>ℤ</mi></mrow></math>, <math id="S2.p1.m3" class="ltx_Math" alttext="b\neq 0" display="inline"><mrow><mi>b</mi><mo>≠</mo><mn>0</mn></mrow></math>, and <math id="S2.p1.m4" class="ltx_Math" alttext="a" display="inline"><mi>a</mi></math> and <math id="S2.p1.m5" class="ltx_Math" alttext="b" display="inline"><mi>b</mi></math> are coprime.
+Thus</p>
+<table id="S2.Ex3" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex3.m1" class="ltx_Math" alttext="q^{2}=2=\frac{a^{2}}{b^{2}}," display="block"><mrow><mrow><msup><mi>q</mi><mn>2</mn></msup><mo>=</mo><mn>2</mn><mo>=</mo><mfrac><msup><mi>a</mi><mn>2</mn></msup><msup><mi>b</mi><mn>2</mn></msup></mfrac></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">which implies</p>
+<table id="S2.Ex4" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex4.m1" class="ltx_Math" alttext="2b^{2}=a^{2}." display="block"><mrow><mrow><mrow><mn>2</mn><mo>⁢</mo><msup><mi>b</mi><mn>2</mn></msup></mrow><mo>=</mo><msup><mi>a</mi><mn>2</mn></msup></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">We use the property that the product of even numbers is even and the product
+of odd numbers is odd (proof left to the reader) to conclude that <math id="S2.p1.m6" class="ltx_Math" alttext="a" display="inline"><mi>a</mi></math> must be
+even since <math id="S2.p1.m7" class="ltx_Math" alttext="a^{2}" display="inline"><msup><mi>a</mi><mn>2</mn></msup></math> is even. Thus we can write <math id="S2.p1.m8" class="ltx_Math" alttext="a=2c" display="inline"><mrow><mi>a</mi><mo>=</mo><mrow><mn>2</mn><mo>⁢</mo><mi>c</mi></mrow></mrow></math> for some <math id="S2.p1.m9" class="ltx_Math" alttext="c\in\mathbb{Z}" display="inline"><mrow><mi>c</mi><mo>∈</mo><mi>ℤ</mi></mrow></math>.
+We then have</p>
+<table id="S2.Ex5" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex5.m1" class="ltx_Math" alttext="q^{2}=2=\frac{(2c)^{2}}{b^{2}}," display="block"><mrow><mrow><msup><mi>q</mi><mn>2</mn></msup><mo>=</mo><mn>2</mn><mo>=</mo><mfrac><msup><mrow><mo stretchy="false">(</mo><mrow><mn>2</mn><mo>⁢</mo><mi>c</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><msup><mi>b</mi><mn>2</mn></msup></mfrac></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">which implies</p>
+<table id="S2.Ex6" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex6.m1" class="ltx_Math" alttext="2b^{2}=4c^{2}." display="block"><mrow><mrow><mrow><mn>2</mn><mo>⁢</mo><msup><mi>b</mi><mn>2</mn></msup></mrow><mo>=</mo><mrow><mn>4</mn><mo>⁢</mo><msup><mi>c</mi><mn>2</mn></msup></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Dividing both sides by 2, we have</p>
+<table id="S2.Ex7" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S2.Ex7.m1" class="ltx_Math" alttext="b^{2}=2c^{2}," display="block"><mrow><mrow><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mi>c</mi><mn>2</mn></msup></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">which using the latter property again tells us <math id="S2.p1.m10" class="ltx_Math" alttext="b" display="inline"><mi>b</mi></math> is even. But this
+contradicts the fact that <math id="S2.p1.m11" class="ltx_Math" alttext="a" display="inline"><mi>a</mi></math> and <math id="S2.p1.m12" class="ltx_Math" alttext="b" display="inline"><mi>b</mi></math> are coprime since they both share
+a factor of 2.
+∎</p>
+</div>
+</div>
+</section>
+<section id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3 </span>Conclusion</h2>
+
+<div id="S3.p1" class="ltx_para">
+<p class="ltx_p">This proof demonstrates that there is no rational number whose square is 2.
+Here is a list of remarks regarding this proof:</p>
+<ul id="S3.I1" class="ltx_itemize">
+<li id="S3.I1.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I1.i1.p1" class="ltx_para">
+<p class="ltx_p">This proof can be easily adapted to show that for any prime number <math id="S3.I1.i1.p1.m1" class="ltx_Math" alttext="p" display="inline"><mi>p</mi></math>,
+there is no rational number whose square is <math id="S3.I1.i1.p1.m2" class="ltx_Math" alttext="p" display="inline"><mi>p</mi></math>.</p>
+</div>
+</li>
+<li id="S3.I1.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I1.i2.p1" class="ltx_para">
+<p class="ltx_p">The constructible numbers, which are numbers that can be constructed
+using a compass and straightedge, include the length of the diagonal of a
+unit square. This proof shows that the constructible numbers
+are a larger number system than the rationals.</p>
+</div>
+</li>
+<li id="S3.I1.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I1.i3.p1" class="ltx_para">
+<p class="ltx_p">All numbers on computers are rational numbers, since they are
+represented with a finite number of bits, which can only represent
+a finite number of fractions. This proof shows that computers
+cannot exactly represent the square root of 2, at least numerically.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">Since the rationals do not contain such a number, we can adjoin <math id="S3.p1.m1" class="ltx_Math" alttext="\sqrt{2}" display="inline"><msqrt><mn>2</mn></msqrt></math>
+to them to form a larger number system that does contain such
+a number, which is called the field extension
+<math id="S3.p1.m2" class="ltx_Math" alttext="\mathbb{Q}(\sqrt{2})" display="inline"><mrow><mi>ℚ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msqrt><mn>2</mn></msqrt><mo stretchy="false">)</mo></mrow></mrow></math>. This field extension contains all numbers of the
+form <math id="S3.p1.m3" class="ltx_Math" alttext="a+b\sqrt{2}" display="inline"><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></math>, where <math id="S3.p1.m4" class="ltx_Math" alttext="a" display="inline"><mi>a</mi></math> and <math id="S3.p1.m5" class="ltx_Math" alttext="b" display="inline"><mi>b</mi></math> are rational numbers, and is
+the smallest field that contains both the rationals and <math id="S3.p1.m6" class="ltx_Math" alttext="\sqrt{2}" display="inline"><msqrt><mn>2</mn></msqrt></math>.
+In closing, we will show that <math id="S3.p1.m7" class="ltx_Math" alttext="\mathbb{Q}(\sqrt{2})" display="inline"><mrow><mi>ℚ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msqrt><mn>2</mn></msqrt><mo stretchy="false">)</mo></mrow></mrow></math> is indeed a field.</p>
+</div>
+<section id="S3.SS1" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.1 </span>Definition of a field</h3>
+
+<div id="S3.SS1.p1" class="ltx_para">
+<p class="ltx_p">A field is a set <math id="S3.SS1.p1.m1" class="ltx_Math" alttext="F" display="inline"><mi>F</mi></math> equipped with two binary operations, addition
+and multiplication, such that the following properties hold:</p>
+<ul id="S3.I2" class="ltx_itemize">
+<li id="S3.I2.i1" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I2.i1.p1" class="ltx_para">
+<p class="ltx_p">Associativity of addition and multiplication: For all
+<math id="S3.I2.i1.p1.m1" class="ltx_Math" alttext="x,y,z\in F" display="inline"><mrow><mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi></mrow><mo>∈</mo><mi>F</mi></mrow></math>, we have <math id="S3.I2.i1.p1.m2" class="ltx_Math" alttext="(x+y)+z=x+(y+z)" display="inline"><mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mi>z</mi></mrow><mo>=</mo><mrow><mi>x</mi><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo>+</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math> and
+<math id="S3.I2.i1.p1.m3" class="ltx_Math" alttext="(x\cdot y)\cdot z=x\cdot(y\cdot z)" display="inline"><mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>y</mi></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mi>z</mi></mrow><mo>=</mo><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math>.</p>
+</div>
+</li>
+<li id="S3.I2.i2" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I2.i2.p1" class="ltx_para">
+<p class="ltx_p">Commutativity of addition and multiplication: For all
+<math id="S3.I2.i2.p1.m1" class="ltx_Math" alttext="x,y\in F" display="inline"><mrow><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow><mo>∈</mo><mi>F</mi></mrow></math>, we have <math id="S3.I2.i2.p1.m2" class="ltx_Math" alttext="x+y=y+x" display="inline"><mrow><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mo>=</mo><mrow><mi>y</mi><mo>+</mo><mi>x</mi></mrow></mrow></math> and <math id="S3.I2.i2.p1.m3" class="ltx_Math" alttext="x\cdot y=y\cdot x" display="inline"><mrow><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>y</mi></mrow><mo>=</mo><mrow><mi>y</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>x</mi></mrow></mrow></math>.</p>
+</div>
+</li>
+<li id="S3.I2.i3" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I2.i3.p1" class="ltx_para">
+<p class="ltx_p">Distributivity of multiplication over addition: For all
+<math id="S3.I2.i3.p1.m1" class="ltx_Math" alttext="x,y,z\in F" display="inline"><mrow><mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi></mrow><mo>∈</mo><mi>F</mi></mrow></math>, we have <math id="S3.I2.i3.p1.m2" class="ltx_Math" alttext="x\cdot(y+z)=x\cdot y+x\cdot z" display="inline"><mrow><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo>+</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>y</mi></mrow><mo>+</mo><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>z</mi></mrow></mrow></mrow></math>.</p>
+</div>
+</li>
+<li id="S3.I2.i4" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I2.i4.p1" class="ltx_para">
+<p class="ltx_p">Additive and multiplicative identities: There exist elements
+<math id="S3.I2.i4.p1.m1" class="ltx_Math" alttext="0,1\in F" display="inline"><mrow><mrow><mn>0</mn><mo>,</mo><mn>1</mn></mrow><mo>∈</mo><mi>F</mi></mrow></math> such that for all <math id="S3.I2.i4.p1.m2" class="ltx_Math" alttext="x\in F" display="inline"><mrow><mi>x</mi><mo>∈</mo><mi>F</mi></mrow></math>, <math id="S3.I2.i4.p1.m3" class="ltx_Math" alttext="x+0=x" display="inline"><mrow><mrow><mi>x</mi><mo>+</mo><mn>0</mn></mrow><mo>=</mo><mi>x</mi></mrow></math> and <math id="S3.I2.i4.p1.m4" class="ltx_Math" alttext="x\cdot 1=x" display="inline"><mrow><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mn>1</mn></mrow><mo>=</mo><mi>x</mi></mrow></math></p>
+</div>
+</li>
+<li id="S3.I2.i5" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I2.i5.p1" class="ltx_para">
+<p class="ltx_p">Additive and multiplicative inverses: For every <math id="S3.I2.i5.p1.m1" class="ltx_Math" alttext="x\in F" display="inline"><mrow><mi>x</mi><mo>∈</mo><mi>F</mi></mrow></math>,
+there exist elements <math id="S3.I2.i5.p1.m2" class="ltx_Math" alttext="-x,x^{-1}\in F" display="inline"><mrow><mrow><mrow><mo>−</mo><mi>x</mi></mrow><mo>,</mo><msup><mi>x</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><mo>∈</mo><mi>F</mi></mrow></math> such that <math id="S3.I2.i5.p1.m3" class="ltx_Math" alttext="x+(-x)=0" display="inline"><mrow><mrow><mi>x</mi><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mo>−</mo><mi>x</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mn>0</mn></mrow></math> and
+<math id="S3.I2.i5.p1.m4" class="ltx_Math" alttext="x\cdot x^{-1}=1" display="inline"><mrow><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><msup><mi>x</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><mo>=</mo><mn>1</mn></mrow></math>, where <math id="S3.I2.i5.p1.m5" class="ltx_Math" alttext="x^{-1}" display="inline"><msup><mi>x</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></math> is defined only for <math id="S3.I2.i5.p1.m6" class="ltx_Math" alttext="x\neq 0" display="inline"><mrow><mi>x</mi><mo>≠</mo><mn>0</mn></mrow></math>.</p>
+</div>
+</li>
+<li id="S3.I2.i6" class="ltx_item" style="list-style-type:none;">
+<span class="ltx_tag ltx_tag_item">•</span> 
+<div id="S3.I2.i6.p1" class="ltx_para">
+<p class="ltx_p">Distributivity of multiplication over addition: For all
+<math id="S3.I2.i6.p1.m1" class="ltx_Math" alttext="x,y,z\in F" display="inline"><mrow><mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi></mrow><mo>∈</mo><mi>F</mi></mrow></math>, we have <math id="S3.I2.i6.p1.m2" class="ltx_Math" alttext="x\cdot(y+z)=x\cdot y+x\cdot z" display="inline"><mrow><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo>+</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>y</mi></mrow><mo>+</mo><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>z</mi></mrow></mrow></mrow></math>.</p>
+</div>
+</li>
+</ul>
+<p class="ltx_p">Please note that many of the following steps seem trivial, but they are
+necessary since we want to only manipulate rational numbers using their
+properties without assuming they also hold for <math id="S3.SS1.p1.m2" class="ltx_Math" alttext="\sqrt{2}" display="inline"><msqrt><mn>2</mn></msqrt></math>.</p>
+</div>
+</section>
+<section id="S3.SS2" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.2 </span>Associativity of addition and multiplication</h3>
+
+<div id="S3.SS2.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S3.SS2.p1.m1" class="ltx_Math" alttext="x=a+b\sqrt{2}" display="inline"><mrow><mi>x</mi><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>, <math id="S3.SS2.p1.m2" class="ltx_Math" alttext="y=c+d\sqrt{2}" display="inline"><mrow><mi>y</mi><mo>=</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>, and <math id="S3.SS2.p1.m3" class="ltx_Math" alttext="z=e+f\sqrt{2}" display="inline"><mrow><mi>z</mi><mo>=</mo><mrow><mi>e</mi><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>,
+where <math id="S3.SS2.p1.m4" class="ltx_Math" alttext="a,b,c,d,e,f\in\mathbb{Q}" display="inline"><mrow><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>d</mi><mo>,</mo><mi>e</mi><mo>,</mo><mi>f</mi></mrow><mo>∈</mo><mi>ℚ</mi></mrow></math>. We have</p>
+<table id="S3.EGx1" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tbody id="S3.Ex8"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex8.m1" class="ltx_Math" alttext="\displaystyle(x+y)+z" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mi>z</mi></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex8.m2" class="ltx_Math" alttext="\displaystyle=((a+b\sqrt{2})+(c+d\sqrt{2}))+(e+f\sqrt{2})" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mi>e</mi><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex9"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex9.m1" class="ltx_Math" alttext="\displaystyle=(a+c+(b+d)\sqrt{2})+(e+f\sqrt{2})" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mi>c</mi><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>b</mi><mo>+</mo><mi>d</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mi>e</mi><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex10"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex10.m1" class="ltx_Math" alttext="\displaystyle=(a+c+e)+((b+d)+f)\sqrt{2}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mi>c</mi><mo>+</mo><mi>e</mi></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>b</mi><mo>+</mo><mi>d</mi></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mi>f</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex11"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex11.m1" class="ltx_Math" alttext="\displaystyle=a+(c+e)+b\sqrt{2}+(d+f)\sqrt{2}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mi>e</mi></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>d</mi><mo>+</mo><mi>f</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex12"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex12.m1" class="ltx_Math" alttext="\displaystyle=(a+b\sqrt{2})+((c+d\sqrt{2})+(e+f\sqrt{2}))" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mi>e</mi><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex13"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex13.m1" class="ltx_Math" alttext="\displaystyle=x+(y+z)." display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mi>x</mi><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo>+</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Similarly, we have</p>
+<table id="S3.EGx2" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tbody id="S3.Ex14"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex14.m1" class="ltx_Math" alttext="\displaystyle(x\cdot y)\cdot z" display="inline"><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>y</mi></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mi>z</mi></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex14.m2" class="ltx_Math" alttext="\displaystyle=((a+b\sqrt{2})\cdot(c+d\sqrt{2}))\cdot(e+f\sqrt{2})" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>e</mi><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex15"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex15.m1" class="ltx_Math" alttext="\displaystyle=(ac+2bd+(ad+bc)\sqrt{2})\cdot(e+f\sqrt{2})" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>c</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi><mo>⁢</mo><mi>d</mi></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>d</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>c</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>e</mi><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex16"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex16.m1" class="ltx_Math" alttext="\displaystyle=(ac+2bd)e+(ac+2bd)f\sqrt{2}+(ad+bc)e\sqrt{2}+2(ad+bc)f" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>c</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi><mo>⁢</mo><mi>d</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>e</mi></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>c</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi><mo>⁢</mo><mi>d</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>d</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>c</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>e</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>d</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>c</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><mi>f</mi></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex17"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex17.m1" class="ltx_Math" alttext="\displaystyle=(ace+2bde+2adf+2bcf)+(acf+ade+bce)\sqrt{2}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>e</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>e</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>a</mi><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>f</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>f</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>f</mi></mrow><mo>+</mo><mrow><mi>a</mi><mo>⁢</mo><mi>d</mi><mo>⁢</mo><mi>e</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>c</mi><mo>⁢</mo><mi>e</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex18"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex18.m1" class="ltx_Math" alttext="\displaystyle=(a+b\sqrt{2})\cdot((c+d\sqrt{2})\cdot(e+f\sqrt{2}))" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>e</mi><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex19"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex19.m1" class="ltx_Math" alttext="\displaystyle=x\cdot(y\cdot z)." display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+</div>
+</section>
+<section id="S3.SS3" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.3 </span>Commutativity of addition and multiplication</h3>
+
+<div id="S3.SS3.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S3.SS3.p1.m1" class="ltx_Math" alttext="x=a+b\sqrt{2}" display="inline"><mrow><mi>x</mi><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math> and <math id="S3.SS3.p1.m2" class="ltx_Math" alttext="y=c+d\sqrt{2}" display="inline"><mrow><mi>y</mi><mo>=</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>,
+where <math id="S3.SS3.p1.m3" class="ltx_Math" alttext="a,b,c,d\in\mathbb{Q}" display="inline"><mrow><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>d</mi></mrow><mo>∈</mo><mi>ℚ</mi></mrow></math>. We have</p>
+<table id="S3.EGx3" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tbody id="S3.Ex20"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex20.m1" class="ltx_Math" alttext="\displaystyle x+y" display="inline"><mrow><mi>x</mi><mo>+</mo><mi>y</mi></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex20.m2" class="ltx_Math" alttext="\displaystyle=(a+b\sqrt{2})+(c+d\sqrt{2})" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex21"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex21.m1" class="ltx_Math" alttext="\displaystyle=(a+c)+(b+d)\sqrt{2}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mi>c</mi></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>b</mi><mo>+</mo><mi>d</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex22"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex22.m1" class="ltx_Math" alttext="\displaystyle=(c+d\sqrt{2})+(a+b\sqrt{2})" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex23"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex23.m1" class="ltx_Math" alttext="\displaystyle=y+x." display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mi>y</mi><mo>+</mo><mi>x</mi></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Similarly, we have</p>
+<table id="S3.EGx4" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tbody id="S3.Ex24"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex24.m1" class="ltx_Math" alttext="\displaystyle x\cdot y" display="inline"><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>y</mi></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex24.m2" class="ltx_Math" alttext="\displaystyle=(a+b\sqrt{2})\cdot(c+d\sqrt{2})" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex25"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex25.m1" class="ltx_Math" alttext="\displaystyle=ac+2bd+(ad+bc)\sqrt{2}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>c</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi><mo>⁢</mo><mi>d</mi></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>d</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>c</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex26"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex26.m1" class="ltx_Math" alttext="\displaystyle=(c+d\sqrt{2})\cdot(a+b\sqrt{2})" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex27"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex27.m1" class="ltx_Math" alttext="\displaystyle=y\cdot x." display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mi>y</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>x</mi></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+</div>
+</section>
+<section id="S3.SS4" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.4 </span>Identities and Inverses</h3>
+
+<div id="S3.SS4.p1" class="ltx_para">
+<p class="ltx_p">The additive identity is <math id="S3.SS4.p1.m1" class="ltx_Math" alttext="0=0+0\sqrt{2}" display="inline"><mrow><mn>0</mn><mo>=</mo><mrow><mn>0</mn><mo>+</mo><mrow><mn>0</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>, since for any
+<math id="S3.SS4.p1.m2" class="ltx_Math" alttext="x=a+b\sqrt{2}" display="inline"><mrow><mi>x</mi><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>, we have</p>
+<table id="S3.Ex28" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex28.m1" class="ltx_Math" alttext="x+0=(a+b\sqrt{2})+(0+0\sqrt{2})=a+b\sqrt{2}=x." display="block"><mrow><mrow><mrow><mi>x</mi><mo>+</mo><mn>0</mn></mrow><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mn>0</mn><mo>+</mo><mrow><mn>0</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo>=</mo><mi>x</mi></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">The multiplicative identity is <math id="S3.SS4.p1.m3" class="ltx_Math" alttext="1=1+0\sqrt{2}" display="inline"><mrow><mn>1</mn><mo>=</mo><mrow><mn>1</mn><mo>+</mo><mrow><mn>0</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>, since for any
+<math id="S3.SS4.p1.m4" class="ltx_Math" alttext="x=a+b\sqrt{2}" display="inline"><mrow><mi>x</mi><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>, we have</p>
+<table id="S3.Ex29" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex29.m1" class="ltx_Math" alttext="x\cdot 1=(a+b\sqrt{2})\cdot(1+0\sqrt{2})=a+b\sqrt{2}=x." display="block"><mrow><mrow><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mn>1</mn></mrow><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mo>+</mo><mrow><mn>0</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo>=</mo><mi>x</mi></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">The additive inverse of <math id="S3.SS4.p1.m5" class="ltx_Math" alttext="x=a+b\sqrt{2}" display="inline"><mrow><mi>x</mi><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math> is <math id="S3.SS4.p1.m6" class="ltx_Math" alttext="-x=-a-b\sqrt{2}" display="inline"><mrow><mrow><mo>−</mo><mi>x</mi></mrow><mo>=</mo><mrow><mrow><mo>−</mo><mi>a</mi></mrow><mo>−</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>, since</p>
+<table id="S3.Ex30" class="ltx_equation ltx_eqn_table">
+
+<tbody><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_eqn_cell ltx_align_center"><math id="S3.Ex30.m1" class="ltx_Math" alttext="x+(-x)=(a+b\sqrt{2})+(-a-b\sqrt{2})=0+0\sqrt{2}=0." display="block"><mrow><mrow><mrow><mi>x</mi><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mo>−</mo><mi>x</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo>−</mo><mi>a</mi></mrow><mo>−</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>=</mo><mrow><mn>0</mn><mo>+</mo><mrow><mn>0</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo>=</mo><mn>0</mn></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">The multiplicative inverse of <math id="S3.SS4.p1.m7" class="ltx_Math" alttext="x=a+b\sqrt{2}" display="inline"><mrow><mi>x</mi><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math> (for <math id="S3.SS4.p1.m8" class="ltx_Math" alttext="x\neq 0" display="inline"><mrow><mi>x</mi><mo>≠</mo><mn>0</mn></mrow></math>) is</p>
+<table id="S3.EGx5" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tbody id="S3.Ex31"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex31.m1" class="ltx_Math" alttext="\displaystyle x^{-1}" display="inline"><msup><mi>x</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex31.m2" class="ltx_Math" alttext="\displaystyle=\frac{1}{a+b\sqrt{2}}\cdot\frac{a-b\sqrt{2}}{a-b\sqrt{2}}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mstyle displaystyle="true"><mfrac><mn>1</mn><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mfrac></mstyle><mo lspace="0.222em" rspace="0.222em">⋅</mo><mstyle displaystyle="true"><mfrac><mrow><mi>a</mi><mo>−</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mrow><mi>a</mi><mo>−</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mfrac></mstyle></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex32"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex32.m1" class="ltx_Math" alttext="\displaystyle=\frac{a-b\sqrt{2}}{a^{2}-2b^{2}}" display="inline"><mrow><mi></mi><mo>=</mo><mstyle displaystyle="true"><mfrac><mrow><mi>a</mi><mo>−</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mi>b</mi><mn>2</mn></msup></mrow></mrow></mfrac></mstyle></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex33"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex33.m1" class="ltx_Math" alttext="\displaystyle=\frac{a}{a^{2}-2b^{2}}+\frac{-b}{a^{2}-2b^{2}}\sqrt{2}," display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mstyle displaystyle="true"><mfrac><mi>a</mi><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mi>b</mi><mn>2</mn></msup></mrow></mrow></mfrac></mstyle><mo>+</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><mo>−</mo><mi>b</mi></mrow><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mi>b</mi><mn>2</mn></msup></mrow></mrow></mfrac></mstyle><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow><mo>,</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">since</p>
+<table id="S3.EGx6" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tbody id="S3.Ex34"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex34.m1" class="ltx_Math" alttext="\displaystyle x\cdot x^{-1}" display="inline"><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><msup><mi>x</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex34.m2" class="ltx_Math" alttext="\displaystyle=(a+b\sqrt{2})\cdot\left(\frac{a}{a^{2}-2b^{2}}+\frac{-b}{a^{2}-2%
+b^{2}}\sqrt{2}\right)" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo>(</mo><mrow><mstyle displaystyle="true"><mfrac><mi>a</mi><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mi>b</mi><mn>2</mn></msup></mrow></mrow></mfrac></mstyle><mo>+</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><mo>−</mo><mi>b</mi></mrow><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mi>b</mi><mn>2</mn></msup></mrow></mrow></mfrac></mstyle><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo>)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex35"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex35.m1" class="ltx_Math" alttext="\displaystyle=\frac{a^{2}-2b^{2}}{a^{2}-2b^{2}}+0\sqrt{2}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mstyle displaystyle="true"><mfrac><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mi>b</mi><mn>2</mn></msup></mrow></mrow><mrow><msup><mi>a</mi><mn>2</mn></msup><mo>−</mo><mrow><mn>2</mn><mo>⁢</mo><msup><mi>b</mi><mn>2</mn></msup></mrow></mrow></mfrac></mstyle><mo>+</mo><mrow><mn>0</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex36"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex36.m1" class="ltx_Math" alttext="\displaystyle=1+0\sqrt{2}=1." display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mn>1</mn><mo>+</mo><mrow><mn>0</mn><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo>=</mo><mn>1</mn></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+</div>
+</section>
+<section id="S3.SS5" class="ltx_subsection">
+<h3 class="ltx_title ltx_title_subsection">
+<span class="ltx_tag ltx_tag_subsection">3.5 </span>Distributivity of multiplication over addition</h3>
+
+<div id="S3.SS5.p1" class="ltx_para">
+<p class="ltx_p">Let <math id="S3.SS5.p1.m1" class="ltx_Math" alttext="x=a+b\sqrt{2}" display="inline"><mrow><mi>x</mi><mo>=</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>, <math id="S3.SS5.p1.m2" class="ltx_Math" alttext="y=c+d\sqrt{2}" display="inline"><mrow><mi>y</mi><mo>=</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>, and <math id="S3.SS5.p1.m3" class="ltx_Math" alttext="z=e+f\sqrt{2}" display="inline"><mrow><mi>z</mi><mo>=</mo><mrow><mi>e</mi><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math>,
+where <math id="S3.SS5.p1.m4" class="ltx_Math" alttext="a,b,c,d,e,f\in\mathbb{Q}" display="inline"><mrow><mrow><mi>a</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>c</mi><mo>,</mo><mi>d</mi><mo>,</mo><mi>e</mi><mo>,</mo><mi>f</mi></mrow><mo>∈</mo><mi>ℚ</mi></mrow></math>. We have</p>
+<table id="S3.EGx7" class="ltx_equationgroup ltx_eqn_align ltx_eqn_table">
+
+<tbody id="S3.Ex37"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_align_right ltx_eqn_cell"><math id="S3.Ex37.m1" class="ltx_Math" alttext="\displaystyle x\cdot(y+z)" display="inline"><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo>+</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></math></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex37.m2" class="ltx_Math" alttext="\displaystyle=(a+b\sqrt{2})\cdot((c+d\sqrt{2})+(e+f\sqrt{2}))" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mo stretchy="false">(</mo><mrow><mi>e</mi><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex38"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex38.m1" class="ltx_Math" alttext="\displaystyle=(a+b\sqrt{2})\cdot((c+e)+(d+f)\sqrt{2})" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mi>e</mi></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>d</mi><mo>+</mo><mi>f</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex39"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex39.m1" class="ltx_Math" alttext="\displaystyle=a(c+e)+b(c+e)\sqrt{2}+a(d+f)\sqrt{2}+2b(d+f)" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mi>e</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mi>e</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow><mo>+</mo><mrow><mi>a</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>d</mi><mo>+</mo><mi>f</mi></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><mrow><mi>d</mi><mo>+</mo><mi>f</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex40"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex40.m1" class="ltx_Math" alttext="\displaystyle=(ac+ae+2bd+2bf)+(ad+af+bc+be)\sqrt{2}" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>c</mi></mrow><mo>+</mo><mrow><mi>a</mi><mo>⁢</mo><mi>e</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi><mo>⁢</mo><mi>d</mi></mrow><mo>+</mo><mrow><mn>2</mn><mo>⁢</mo><mi>b</mi><mo>⁢</mo><mi>f</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>a</mi><mo>⁢</mo><mi>d</mi></mrow><mo>+</mo><mrow><mi>a</mi><mo>⁢</mo><mi>f</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>c</mi></mrow><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><mi>e</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex41"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex41.m1" class="ltx_Math" alttext="\displaystyle=(a+b\sqrt{2})\cdot(c+d\sqrt{2})+(a+b\sqrt{2})\cdot(e+f\sqrt{2})" display="inline"><mrow><mi></mi><mo>=</mo><mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>c</mi><mo>+</mo><mrow><mi>d</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mo>+</mo><mrow><mi>b</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo rspace="0.055em" stretchy="false">)</mo></mrow><mo rspace="0.222em">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>e</mi><mo>+</mo><mrow><mi>f</mi><mo>⁢</mo><msqrt><mn>2</mn></msqrt></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+<tbody id="S3.Ex42"><tr class="ltx_equation ltx_eqn_row ltx_align_baseline">
+<td class="ltx_eqn_cell ltx_eqn_center_padleft"></td>
+<td class="ltx_td ltx_eqn_cell"></td>
+<td class="ltx_td ltx_align_left ltx_eqn_cell"><math id="S3.Ex42.m1" class="ltx_Math" alttext="\displaystyle=x\cdot y+x\cdot z." display="inline"><mrow><mrow><mi></mi><mo>=</mo><mrow><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>y</mi></mrow><mo>+</mo><mrow><mi>x</mi><mo lspace="0.222em" rspace="0.222em">⋅</mo><mi>z</mi></mrow></mrow></mrow><mo lspace="0em">.</mo></mrow></math></td>
+<td class="ltx_eqn_cell ltx_eqn_center_padright"></td>
+</tr></tbody>
+</table>
+<p class="ltx_p">Thus, we have shown that <math id="S3.SS5.p1.m5" class="ltx_Math" alttext="\mathbb{Q}(\sqrt{2})" display="inline"><mrow><mi>ℚ</mi><mo>⁢</mo><mrow><mo stretchy="false">(</mo><msqrt><mn>2</mn></msqrt><mo stretchy="false">)</mo></mrow></mrow></math> satisfies all the properties
+of a field.</p>
+</div>
+</section>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Wed Nov 26 12:20:41 2025 by <a href="http://dlmf.nist.gov/LaTeXML/" class="ltx_LaTeXML_logo"><span style="letter-spacing:-0.2em; margin-right:0.1em;">L<span class="ltx_font_smallcaps" style="position:relative; bottom:2.2pt;">a</span>T<span class="ltx_font_smallcaps" style="font-size:120%;position:relative; bottom:-0.2ex;">e</span></span><span style="font-size:90%; position:relative; bottom:-0.2ex;">XML</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="Mascot Sammy"></a>
+</div></footer>
+</div>
+</body>
+</html>

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MATH-656: Cryptography &amp; Ciphers</title>
+  <title>MATH-645: A Survey of Mathematical Problems</title>
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <header>
   <div class="container site-header">
-    <div class="site-title">MATH-656: Cryptography &amp; Ciphers</div>
+    <div class="site-title">MATH-645: A Survey of Mathematical Problems</div>
     <nav>
       <a href="../index.html">Home</a>
       <a href="../cv.html">CV</a>
@@ -19,13 +19,13 @@
           Courses ▾
         </button>
         <div class="nav-dropdown-menu">
-          <a href="index.html">MATH-656</a>
+          <a href="../MATH-696/index.html">MATH-696</a>
+          <a href="index.html">MATH-645</a>
           <a href="../EDAD-601/index.html">EDAD-601</a>
-          <a href="../CS3152/index.html">CS3152 Game Design</a>
+          <a href="../CS3152/index.html">CS-3152</a>
         </div>
       </div>
 
-      <a href="../about.html">About Me</a>
       <a href="../philosophy.html">Teaching Philosophy</a>
       <a href="../syllabus.html">Syllabus</a>
       <a href="../evaluation.html">Teaching Evaluation</a>
@@ -37,15 +37,15 @@
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-tag">Course Site</div>
-      <h1 class="hero-title">MATH-656: Cryptography &amp; Ciphers</h1>
+      <h1 class="hero-title">MATH-645: A Survey of Mathematical Problems</h1>
       <p class="hero-subtitle">
-        Implementation and cryptanalysis of classic ciphers.
+        This page currently has the final project for the course, which explores
+        the mathematics behind classical cryptographic ciphers.
       </p>
       <p class="hero-description">
-        This site hosts interactive demos and notes for classical cryptography:
-        Caesar, Vigenère, Hill, substitution ciphers, and more. Many of the ideas
-        here are drawn from my paper on classical cipher implementation and
-        cryptanalysis.
+        There are interactive applications for classical cryptography:
+        Caesar, Substitution, Vigenère, and Hill ciphers. These tools are
+        meant for a practical demonstration of the concepts from my paper.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="jiang_14.pdf">
@@ -61,12 +61,12 @@
     <div class="section-inner">
       <div class="section-header">
         <h2>Overview</h2>
-        <p>What lives in this MATH-656 space.</p>
+        <p>What lives in this MATH-645 space.</p>
       </div>
 
       <div class="card">
         <p>
-          The focus of this course segment is on <strong>classical ciphers</strong>:
+          The focus of these pages is on <strong>classical ciphers</strong>:
           how they work, how to implement them, and how to break them using
           frequency analysis and other techniques. The pages below provide
           implementations, small experiments, and places to play with your own
@@ -99,28 +99,6 @@
         </article>
 
         <article class="card">
-          <small>Matrix Cipher</small>
-          <h3>Hill</h3>
-          <p>
-            Experiment with the Hill cipher using matrices over modular
-            arithmetic. See how linear algebra over \(\mathbb{Z}_n\) creates
-            polygraphic substitutions.
-          </p>
-          <a href="hill.html">Open Hill cipher tool &raquo;</a>
-        </article>
-
-        <article class="card">
-          <small>Keyword Cipher</small>
-          <h3>Vigenère</h3>
-          <p>
-            Work with the Vigenère cipher, using a keyword to drive repeated
-            shifts. Try both encryption and simple cryptanalysis via frequency
-            patterns.
-          </p>
-          <a href="vigenere.html">Open Vigenère tool &raquo;</a>
-        </article>
-
-        <article class="card">
           <small>General Monoalphabetic</small>
           <h3>Substitution</h3>
           <p>
@@ -132,14 +110,27 @@
         </article>
 
         <article class="card">
-          <small>Index / Hub</small>
-          <h3>Landing Page</h3>
+          <small>Keyword Cipher</small>
+          <h3>Vigenère</h3>
           <p>
-            A consolidated landing page for the cryptography demos and any
-            additional notes or exercises you attach to them.
+            Work with the Vigenère cipher, using a keyword to drive repeated
+            shifts. Try both encryption and cryptanalysis via a technique called
+            Kasiski examination.
           </p>
-          <a href="landing.html">Open landing page &raquo;</a>
+          <a href="vigenere.html">Open Vigenère tool &raquo;</a>
         </article>
+
+        <article class="card">
+          <small>Matrix Cipher</small>
+          <h3>Hill</h3>
+          <p>
+            Experiment with the Hill cipher using matrices over modular
+            arithmetic. See how linear algebra over a finite field creates
+            polygraphic substitutions.
+          </p>
+          <a href="hill.html">Open Hill cipher tool &raquo;</a>
+        </article>
+
       </div>
 
       <div style="margin-top:16px;">
@@ -151,7 +142,7 @@
 
 <footer>
   <div class="footer-inner">
-    <div>&copy; <span id="year"></span> Mengxiang. MATH-656 Cryptography &amp; Ciphers.</div>
+    <div>&copy; <span id="year"></span> Mengxiang. MATH-645 A Survey of Mathematical Problems.</div>
   </div>
 </footer>
 

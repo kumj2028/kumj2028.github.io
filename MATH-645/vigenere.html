@@ -1,53 +1,267 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Vigenere Cipher</title>
-<link href="../style.css" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vigenère Cipher</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* Local styling for the cipher UI; move to style.css if you like */
+    .cipher-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .cipher-form label {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .cipher-form textarea {
+      width: 100%;
+      min-height: 4.5rem;
+      resize: vertical;
+      padding: 0.5rem 0.6rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .cipher-form input[type="text"] {
+      width: 100%;
+      max-width: 260px;
+      padding: 0.35rem 0.6rem;
+      border-radius: 0.5rem;
+      border: 1px solid #d1d5db;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .cipher-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.3rem;
+    }
+
+    .cipher-buttons button {
+      font-size: 0.9rem;
+    }
+
+    .analysis-output {
+      margin-top: 0.3rem;
+      padding: 0.75rem 0.9rem;
+      border-radius: 0.75rem;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 0.88rem;
+      white-space: pre-wrap;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    .error-message {
+      margin-top: 0.25rem;
+      font-size: 0.85rem;
+      color: #b91c1c;
+      min-height: 1em;
+    }
+
+    .hint-text {
+      font-size: 0.85rem;
+      color: #4b5563;
+      margin-top: 0.2rem;
+    }
+  </style>
 </head>
 <body>
 <header>
-<h1>Vigenere Cipher</h1>
-<nav>
-<a href="index.html">Home</a>
-<a href="caesar.html">Caesar</a>
-<a href="substitution.html">Substitution</a>
-<a href="vigenere.html">Vigenere</a>
-<a href="hill.html">Hill</a>
-</nav>
+  <div class="container site-header">
+    <div class="site-title">MATH-645: A Survey of Mathematical Problems</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../cv.html">CV</a>
+
+      <div class="nav-dropdown">
+        <button class="nav-dropbtn" type="button">
+          Courses ▾
+        </button>
+        <div class="nav-dropdown-menu">
+          <a href="../MATH-696/index.html">MATH-696</a>
+          <a href="index.html">MATH-645</a>
+          <a href="../EDAD-601/index.html">EDAD-601</a>
+          <a href="../CS3152/index.html">CS3152 Game Design</a>
+        </div>
+      </div>
+
+      <a href="../about.html">About Me</a>
+      <a href="../philosophy.html">Teaching Philosophy</a>
+      <a href="../syllabus.html">Syllabus</a>
+      <a href="../evaluation.html">Teaching Evaluation</a>
+    </nav>
+  </div>
 </header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Classical Cipher Tool</div>
+      <h1 class="hero-title">Vigenère Cipher</h1>
+      <p class="hero-subtitle">
+        A polyalphabetic cipher that repeats a keyword across the message.
+      </p>
+      <p class="hero-description">
+        Use this page to encrypt with a Vigenère key, then explore cryptanalysis via Kasiski
+        examination and frequency analysis. See how repeated patterns in the ciphertext
+        reveal the key length, and how letter frequencies help guess the key itself.
+      </p>
+    </div>
+  </div>
+</section>
+
 <main>
-<section class="cipher-container">
-<h2>Encrypt</h2>
-<label for="vig-encrypt-text">Plaintext:</label>
-<textarea id="vig-encrypt-text" rows="3"></textarea>
-<label for="vig-encrypt-key">Key (letters only):</label>
-<input id="vig-encrypt-key" placeholder="e.g., LEMON" type="text"/>
-<button id="vig-encrypt-btn">Encrypt</button>
-<label for="vig-encrypt-output">Ciphertext:</label>
-<textarea id="vig-encrypt-output" readonly="" rows="3"></textarea>
-<p class="error-message" id="vig-encrypt-error"></p>
-</section>
-<section class="cipher-container">
-<h2>Decrypt (Kasiski Examination &amp; Frequency Analysis)</h2>
-<label for="vig-decrypt-text">Ciphertext:</label>
-<textarea id="vig-decrypt-text" rows="4"></textarea>
-<button id="vig-decrypt-btn">Analyze Ciphertext</button>
-<label>Analysis Results:</label>
-<div class="analysis-output" id="vig-decrypt-output"></div>
-<p class="error-message" id="vig-decrypt-error"></p>
-<label for="vig-decrypt-key-guess">Guessed Key:</label>
-<input id="vig-decrypt-key-guess" readonly="" type="text"/>
-<button id="vig-apply-key-btn">Decrypt with Guessed Key</button>
-<label for="vig-decrypt-final-output">Decrypted Text:</label>
-<textarea id="vig-decrypt-final-output" readonly="" rows="4"></textarea>
-</section>
+  <!-- Encrypt -->
+  <section class="section" id="encrypt">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Encrypt</h2>
+        <p>Combine a plaintext and a keyword to generate Vigenère ciphertext.</p>
+      </div>
+
+      <div class="card">
+        <form class="cipher-form" onsubmit="return false;">
+          <div>
+            <label for="vig-encrypt-text">Plaintext</label>
+            <textarea
+              id="vig-encrypt-text"
+              rows="3"
+              placeholder="Enter the message you want to encrypt..."
+            ></textarea>
+          </div>
+
+          <div>
+            <label for="vig-encrypt-key">Key (letters only)</label>
+            <input
+              id="vig-encrypt-key"
+              type="text"
+              placeholder="e.g., LEMON"
+            />
+            <p class="hint-text">
+              The key is repeated across the plaintext. Only letters A–Z are used;
+              other characters are typically ignored or passed through unchanged,
+              depending on your implementation.
+            </p>
+          </div>
+
+          <div class="cipher-buttons">
+            <button class="btn btn-primary" id="vig-encrypt-btn" type="button">
+              Encrypt
+            </button>
+          </div>
+
+          <div>
+            <label for="vig-encrypt-output">Ciphertext</label>
+            <textarea
+              id="vig-encrypt-output"
+              rows="3"
+              readonly
+              placeholder="The encrypted text will appear here..."
+            ></textarea>
+          </div>
+
+          <p class="error-message" id="vig-encrypt-error"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Decrypt / analysis -->
+  <section class="section" id="decrypt">
+    <div class="section-inner">
+      <div class="section-header">
+        <h2>Decrypt (Kasiski Examination &amp; Frequency Analysis)</h2>
+        <p>
+          Analyze the ciphertext to estimate key length, propose a key, and then
+          decrypt using that key.
+        </p>
+      </div>
+
+      <div class="card">
+        <form class="cipher-form" onsubmit="return false;">
+          <div>
+            <label for="vig-decrypt-text">Ciphertext</label>
+            <textarea
+              id="vig-decrypt-text"
+              rows="4"
+              placeholder="Paste ciphertext here to run Kasiski examination and frequency analysis..."
+            ></textarea>
+          </div>
+
+          <div class="cipher-buttons">
+            <button class="btn btn-primary" id="vig-decrypt-btn" type="button">
+              Analyze ciphertext
+            </button>
+          </div>
+
+          <div>
+            <label>Analysis results</label>
+            <div class="analysis-output" id="vig-decrypt-output">
+              <!-- Kasiski / frequency analysis results will appear here -->
+            </div>
+          </div>
+
+          <p class="error-message" id="vig-decrypt-error"></p>
+
+          <hr style="margin:1.25rem 0; border:none; border-top:1px solid #e5e7eb;" />
+
+          <div>
+            <label for="vig-decrypt-key-guess">Guessed key</label>
+            <input
+              id="vig-decrypt-key-guess"
+              type="text"
+              readonly
+            />
+            <p class="hint-text">
+              The analysis suggests this key. You can copy it, edit it, or try a different
+              candidate to see how the decrypted text changes.
+            </p>
+          </div>
+
+          <div class="cipher-buttons">
+            <button class="btn btn-primary" id="vig-apply-key-btn" type="button">
+              Decrypt with guessed key
+            </button>
+          </div>
+
+          <div>
+            <label for="vig-decrypt-final-output">Decrypted text</label>
+            <textarea
+              id="vig-decrypt-final-output"
+              rows="4"
+              readonly
+              placeholder="The decrypted text will appear here..."
+            ></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 </main>
+
 <footer>
-<p>Cryptographic Cipher Showcase</p>
+  <div class="footer-inner">
+    <div>&copy; <span id="year"></span> Mengxiang. Cryptographic Cipher Showcase.</div>
+  </div>
 </footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 <script src="js/vigenere.js"></script>
 </body>
 </html>

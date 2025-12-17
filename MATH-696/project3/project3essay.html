@@ -1,0 +1,157 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Choices Made for Project 3</title>
+<!--Generated on Wed Dec 17 15:19:07 2025 by LaTeXML (version 0.8.8) http://dlmf.nist.gov/LaTeXML/.-->
+<!--Document created on December 17, 2025.-->
+
+<link rel="stylesheet" href="LaTeXML.css" type="text/css">
+<link rel="stylesheet" href="ltx-article.css" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="mod.css" type="text/css">
+    <nav>
+      <a href="../index.html">Home</a>
+    </nav>
+</head>
+<body>
+<div class="ltx_page_main">
+<div class="ltx_page_content">
+<article class="ltx_document ltx_authors_1line">
+<h1 class="ltx_title ltx_title_document">Choices Made for Project 3</h1>
+<div class="ltx_authors">
+<span class="ltx_creator ltx_role_author">
+<span class="ltx_personname">Mengxiang Jiang
+</span></span>
+</div>
+<div class="ltx_dates">(December 17, 2025)</div>
+
+<section id="S1" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">1 </span>Introduction</h2>
+
+<div id="S1.p1" class="ltx_para">
+<p class="ltx_p">This was actually the third attempt at writing this project,
+since my first two attempts were on topics that just were too
+long to fit in the two page limitation. The first two topics
+were on the number of structural isomers of alkanes and
+the number of groups of order <math id="S1.p1.m1" class="ltx_Math" alttext="n" display="inline"><mi>n</mi></math> respectively, in case you’re curious.
+For this third attempt, I decided to go with a topic I was already
+familiar with from high school, which is block walking on Pascal’s triangle.
+This topic is interesting because it combines combinatorics with
+a visual representation, and it allows for exploration of various
+patterns and properties within Pascal’s triangle. One thing I disliked
+about many proofs of combinatorial identities is that they often
+rely on algebraic manipulations rather than intuitive reasoning.
+The proof technique used is also often induction, which
+I also find not very insightful. I will quote a passage from
+<span class="ltx_text ltx_font_italic">The Art of Computer Programming Vol 1</span> by Donald Knuth here
+<cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib2" title="The art of computer programming: fundamental algorithms, volume 1" class="ltx_ref">2</a>]</cite>:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p">Most textbooks would simply
+state those formulas, and prove them by induction.
+Induction is, of course, a
+perfectly valid procedure;
+but it does not give any insight into how on earth
+a person would ever have dreamed the formula up in
+the first place, except by some lucky guess.</p>
+</blockquote>
+<p class="ltx_p">Therefore, I wanted to explore combinatorial identities
+using block walking, which provides a more visual and intuitive
+approach to understanding these identities.</p>
+</div>
+</section>
+<section id="S2" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">2 </span>Some Choices Made</h2>
+
+<div id="S2.p1" class="ltx_para">
+<p class="ltx_p">I tried to stick to many of the suggestions given by Paul Halmos in
+his <span class="ltx_text ltx_font_italic">How to Write Mathematics</span> <cite class="ltx_cite ltx_citemacro_cite">[<a href="#bib.bib3" title="How to write mathematics" class="ltx_ref">1</a>]</cite>.
+For example, I tried to keep the number of topics discussed
+to a minimum, and focused on just one topic and one theorem.</p>
+</div>
+<div id="S2.p2" class="ltx_para">
+<p class="ltx_p">The audience I had in mind were high school or early
+undergraduate students who have some familiarity with combinatorics
+but may not have seen block walking before. As such I did not fully
+define binomial coefficients or Pascal’s triangle
+since I assumed familiarity.</p>
+</div>
+<div id="S2.p3" class="ltx_para">
+<p class="ltx_p">I also tried to be clear and concise
+in my explanations, but also anticipating potential difficulties by
+fully expanding an equation rather than just writing the final result
+in one tricky step.</p>
+</div>
+<div id="S2.p4" class="ltx_para">
+<p class="ltx_p">And on the use and avoidance of repetition,
+I included a theorem at the end that is very similar to one proven,
+but I left the proof as an exercise to the reader. This helps
+emphasize the slight difference between the two theorems without
+having to repeat a proof.</p>
+</div>
+<div id="S2.p5" class="ltx_para">
+<p class="ltx_p">One last thing that particularly resonated with
+me when reading Halmos was his anecdote about reading a label (1)
+in a book on page 89, but the display for label (1) was actually
+on page 90.
+He felt helpless and bewildered for five minutes until he finally
+figured it out. At the end, this trick left him feeling
+“stupid and cheated”, and Halmos vowed to never forgive the author.
+I tried to avoid such confusion in my writing by
+carefully labeling equations and figures, and
+referring to them in proper order to avoid disorienting the reader.
+I have also used the <span class="ltx_text ltx_font_typewriter">hyperref</span> package to make
+cross-references clickable. This also
+creates proper links in the LaTeXML html web page. I hope this
+will save my reader’s time and will end
+on this note with a quote from Halmos:</p>
+<blockquote class="ltx_quote">
+<p class="ltx_p">If you work eight hours to save five minutes of the
+reader’s time, you have saved over 80 man-hours
+for each 1000 readers, and your name will be deservedly blessed
+down the corridors of many mathematics buildings.</p>
+</blockquote>
+</div>
+</section>
+<section id="S3" class="ltx_section">
+<h2 class="ltx_title ltx_title_section">
+<span class="ltx_tag ltx_tag_section">3 </span>Bibliography</h2>
+
+</section>
+<section id="bib" class="ltx_bibliography">
+<h2 class="ltx_title ltx_title_bibliography">References</h2>
+
+<ul id="bib.L1" class="ltx_biblist">
+<li id="bib.bib3" class="ltx_bibitem ltx_bib_article">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[1]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">P. R. Halmos</span><span class="ltx_text ltx_bib_year"> (1970)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">How to write mathematics</span>.
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_journal">L’enseignement mathématique</span> <span class="ltx_text ltx_bib_volume">16</span> (<span class="ltx_text ltx_bib_number">2</span>), <span class="ltx_text ltx_bib_pages"> pp. 123–152</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S2.p1" title="2 Some Choices Made ‣ Choices Made for Project 3" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§2</span></a>.
+</span>
+</li>
+<li id="bib.bib2" class="ltx_bibitem ltx_bib_book">
+<span class="ltx_tag ltx_bib_key ltx_role_refnum ltx_tag_bibitem">[2]</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_author">D. E. Knuth</span><span class="ltx_text ltx_bib_year"> (1997)</span>
+</span>
+<span class="ltx_bibblock"><span class="ltx_text ltx_bib_title">The art of computer programming: fundamental algorithms, volume 1</span>.
+</span>
+<span class="ltx_bibblock"> <span class="ltx_text ltx_bib_publisher">Addison-Wesley Professional</span>.
+</span>
+<span class="ltx_bibblock ltx_bib_cited">Cited by: <a href="#S1.p1" title="1 Introduction ‣ Choices Made for Project 3" class="ltx_ref"><span class="ltx_text ltx_ref_tag">§1</span></a>.
+</span>
+</li>
+</ul>
+</section>
+</article>
+</div>
+<footer class="ltx_page_footer">
+<div class="ltx_page_logo">Generated  on Wed Dec 17 15:19:07 2025 by <a href="http://dlmf.nist.gov/LaTeXML/" class="ltx_LaTeXML_logo"><span style="letter-spacing:-0.2em; margin-right:0.1em;">L<span class="ltx_font_smallcaps" style="position:relative; bottom:2.2pt;">a</span>T<span class="ltx_font_smallcaps" style="font-size:120%;position:relative; bottom:-0.2ex;">e</span></span><span style="font-size:90%; position:relative; bottom:-0.2ex;">XML</span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAOCAYAAAD5YeaVAAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB9wKExQZLWTEaOUAAAAddEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIFRoZSBHSU1Q72QlbgAAAdpJREFUKM9tkL+L2nAARz9fPZNCKFapUn8kyI0e4iRHSR1Kb8ng0lJw6FYHFwv2LwhOpcWxTjeUunYqOmqd6hEoRDhtDWdA8ApRYsSUCDHNt5ul13vz4w0vWCgUnnEc975arX6ORqN3VqtVZbfbTQC4uEHANM3jSqXymFI6yWazP2KxWAXAL9zCUa1Wy2tXVxheKA9YNoR8Pt+aTqe4FVVVvz05O6MBhqUIBGk8Hn8HAOVy+T+XLJfLS4ZhTiRJgqIoVBRFIoric47jPnmeB1mW/9rr9ZpSSn3Lsmir1fJZlqWlUonKsvwWwD8ymc/nXwVBeLjf7xEKhdBut9Hr9WgmkyGEkJwsy5eHG5vN5g0AKIoCAEgkEkin0wQAfN9/cXPdheu6P33fBwB4ngcAcByHJpPJl+fn54mD3Gg0NrquXxeLRQAAwzAYj8cwTZPwPH9/sVg8PXweDAauqqr2cDjEer1GJBLBZDJBs9mE4zjwfZ85lAGg2+06hmGgXq+j3+/DsixYlgVN03a9Xu8jgCNCyIegIAgx13Vfd7vdu+FweG8YRkjXdWy329+dTgeSJD3ieZ7RNO0VAXAPwDEAO5VKndi2fWrb9jWl9Esul6PZbDY9Go1OZ7PZ9z/lyuD3OozU2wAAAABJRU5ErkJggg==" alt="Mascot Sammy"></a>
+</div></footer>
+</div>
+</body>
+</html>

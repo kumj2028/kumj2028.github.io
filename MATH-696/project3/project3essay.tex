@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{amsmath,amsthm,amssymb} % Required for math stuff
+\usepackage{hyperref} % Required for hyperlinks
+
+\title{Choices Made for Project 3}
+\author{Mengxiang Jiang}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+This was actually the third attempt at writing this project,
+since my first two attempts were on topics that just were too
+long to fit in the two page limitation. The first two topics
+were on the number of structural isomers of alkanes and
+the number of groups of order $n$ respectively, in case you're curious.
+For this third attempt, I decided to go with a topic I was already
+familiar with from high school, which is block walking on Pascal's triangle.
+This topic is interesting because it combines combinatorics with
+a visual representation, and it allows for exploration of various
+patterns and properties within Pascal's triangle. One thing I disliked
+about many proofs of combinatorial identities is that they often
+rely on algebraic manipulations rather than intuitive reasoning.
+The proof technique used is also often induction, which 
+I also find not very insightful. I will quote a passage from
+\textit{The Art of Computer Programming Vol 1} by Donald Knuth here
+\cite{knuth1997art}:
+\begin{quote}
+    Most textbooks would simply
+    state those formulas, and prove them by induction. 
+    Induction is, of course, a
+    perfectly valid procedure; 
+    but it does not give any insight into how on earth
+    a person would ever have dreamed the formula up in 
+    the first place, except by some lucky guess. 
+\end{quote}
+Therefore, I wanted to explore combinatorial identities
+using block walking, which provides a more visual and intuitive
+approach to understanding these identities.
+
+\section{Some Choices Made}
+I tried to stick to many of the suggestions given by Paul Halmos in
+his \textit{How to Write Mathematics} \cite{halmos1970write}.
+For example, I tried to keep the number of topics discussed
+to a minimum, and focused on just one topic and one theorem.
+
+The audience I had in mind were high school or early
+undergraduate students who have some familiarity with combinatorics
+but may not have seen block walking before. As such I did not fully
+define binomial coefficients or Pascal's triangle 
+since I assumed familiarity. 
+
+I also tried to be clear and concise
+in my explanations, but also anticipating potential difficulties by
+fully expanding an equation rather than just writing the final result
+in one tricky step. 
+
+And on the use and avoidance of repetition,
+I included a theorem at the end that is very similar to one proven,
+but I left the proof as an exercise to the reader. This helps 
+emphasize the slight difference between the two theorems without
+having to repeat a proof. 
+
+One last thing that particularly resonated with
+me when reading Halmos was his anecdote about reading a label (1)
+in a book on page 89, but the display for label (1) was actually 
+on page 90.
+He felt helpless and bewildered for five minutes until he finally
+figured it out. At the end, this trick left him feeling 
+``stupid and cheated'', and Halmos vowed to never forgive the author.
+I tried to avoid such confusion in my writing by
+carefully labeling equations and figures, and
+referring to them in proper order to avoid disorienting the reader.
+I have also used the \texttt{hyperref} package to make
+cross-references clickable. This also
+creates proper links in the LaTeXML html web page. I hope this
+will save my reader's time and will end
+on this note with a quote from Halmos:
+\begin{quote}
+    If you work eight hours to save five minutes of the 
+    reader's time, you have saved over 80 man-hours 
+    for each 1000 readers, and your name will be deservedly blessed
+    down the corridors of many mathematics buildings.
+\end{quote}
+
+\begin{section}{Bibliography}
+    \bibliographystyle{plain}
+    \bibliography{refs}
+\end{section}
+
+\end{document}
